@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #381b6b 0%, #6b3fa0 50%, #a87de0 100%);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(40, 0, 90, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #e6c2ff;
+}
+
+.login-btn {
+  background: #8b5cf6;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 160px 60px 100px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.hero h3 {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #e0c8ff;
+}
+
+.hero p {
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-block;
+  background: #8b5cf6;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #a06ff8;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
+  width: 280px;
+  z-index: 2;
+  position: relative;
+}
+
+.glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  filter: blur(40px);
+}
+
+/* Nuvens */
+.cloud {
+  position: absolute;
+  width: 120px;
+  opacity: 0.9;
+}
+
+.cloud-left { left: 30px; bottom: 80px; }
+.cloud-right { right: 40px; top: 120px; }
+
+/* Personagens Section */
+.personagens {
+  text-align: center;
+  padding: 60px 20px 100px;
+  position: relative;
+}
+
+.personagens h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.objetivo {
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  color: #d6baff;
+}
+
+.personagem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  flex-direction: column;
+}
+
+.circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #5a2b9e, #2a0a50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circle img {
+  width: 140px;
+  z-index: 2;
+  position: relative;
+}
+
+.glow-small {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  z-index: 1;
+}
+
+.text {
+  max-width: 300px;
+  margin-top: 15px;
+}
+
+.text h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.text p {
+  font-size: 0.95rem;
+}
+
+/* Pequenas nuvens */
+.cloud-left-sm, .cloud-right-sm {
+  position: absolute;
+  width: 90px;
+  opacity: 0.9;
+}
+
+.cloud-left-sm {
+  left: 10%;
+  top: 20%;
+}
+
+.cloud-right-sm {
+  right: 10%;
+  bottom: 10%;
+}

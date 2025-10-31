@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editar Perfil - AURA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="profile-page">
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">AURA</a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="profile-container">
+    <div class="profile-form">
+      <h2>Editar Perfil</h2>
+      <form id="editProfileForm">
+        <div class="form-group">
+          <label for="editName" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="editName" required>
+        </div>
+        <div class="form-group">
+          <label for="editEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="editEmail" readonly style="background: #f8fafc;">
+          <small class="form-text">O e-mail de login não pode ser alterado por segurança.</small>
+        </div>
+        <div class="form-group">
+          <label for="currentPassword" class="form-label">Senha Atual <span style="color: var(--on-surface-light); font-weight: normal;">(obrigatória para alterar dados)</span></label>
+          <input type="password" class="form-control" id="currentPassword" required minlength="6">
+        </div>
+        <div class="form-group">
+          <label for="editPassword" class="form-label">Nova senha (opcional)</label>
+          <input type="password" class="form-control" id="editPassword" minlength="6">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+
+  <script>
+    // Verifica login
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Preenche e-mail (somente leitura)
+      document.getElementById('editEmail').value = user.email || '';
+      
+      // Preenche nome do Firestore
+      firebase.firestore().collection('users').doc(user.uid).get()
+        .then(doc => {
+          if (doc.exists) {
+            document.getElementById('editName').value = doc.data().name || '';
+          } else {
+            document.getElementById('editName').value = user.displayName || '';
+          }
+        });
+    });
+
+    // Logout → home
+    document.getElementById('logoutBtn')?.addEventListener('click', async () => {
+      await firebase.auth().signOut();
+      window.location.href = 'index.html';
+    });
+
+    // Salvar perfil (SEM alterar e-mail)
+    document.getElementById('editProfileForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const user = firebase.auth().currentUser;
+      if (!user) return;
+
+      const newName = document.getElementById('editName').value.trim();
+      const currentPassword = document.getElementById('currentPassword').value;
+      const newPassword = document.getElementById('editPassword').value;
+
+      try {
+        // 🔑 Reautentica com senha atual
+        const credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPassword);
+        await user.reauthenticateWithCredential(credential);
+
+        // 🔒 Atualiza senha (se fornecida)
+        if (newPassword) {
+          await user.updatePassword(newPassword);
+        }
+
+        // 👤 Atualiza nome no Firestore e displayName
+        await firebase.firestore().collection('users').doc(user.uid).set({ name: newName }, { merge: true });
+        await user.updateProfile({ displayName: newName });
+
+        alert('Perfil atualizado com sucesso!');
+        window.location.href = 'index.html';
+
+      } catch (err) {
+        console.error('Erro:', err);
+        let msg = 'Não foi possível salvar. ';
+        if (err.code === 'auth/wrong-password') {
+          msg += 'Senha atual incorreta.';
+        } else if (err.code === 'auth/requires-recent-login') {
+          msg += 'Sua sessão expirou. Faça login novamente.';
+        } else {
+          msg += err.message || 'Tente novamente.';
+        }
+        alert(msg);
+      }
+    });
+  </script>
+</body>
+</html>

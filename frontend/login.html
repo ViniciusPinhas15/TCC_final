@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | AURA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-col auth-col-left">
+      <h2>Seja Bem-Vindo(a)</h2>
+      <p>É um fato estabelecido há muito tempo que um leitor será distraído pelo conteúdo legível de uma página.</p>
+    </div>
+    <div class="auth-col auth-col-right">
+      <div class="form-box">
+        <div class="form-header">
+          <h3>LOGIN</h3>
+          <a href="cadastro.html" class="btn btn-primary">CADASTRE-SE</a>
+        </div>
+        <form id="loginForm">
+          <input type="email" class="form-control" id="email" placeholder="EMAIL" required>
+          <input type="password" class="form-control" id="password" placeholder="SENHA" required>
+          <button type="submit" class="btn btn-dark btn-full">ENTRAR</button>
+          
+          <div class="social-buttons">
+            <div class="social-btn">
+              Google
+            </div>
+            <div class="social-btn">
+              Facebook
+            </div>
+          </div>
+        </form>
+        <div id="message" class="message"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro | AURA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-col auth-col-left">
+      <h2>Cadastre seu usuário!</h2>
+      <p>É um fato estabelecido há muito tempo que um leitor será distraído pelo conteúdo legível de uma página.</p>
+    </div>
+    <div class="auth-col auth-col-right">
+      <div class="form-box">
+        <div class="form-header">
+          <h3>CADASTRO</h3>
+          <a href="login.html" class="btn btn-primary">FAÇA LOGIN</a>
+        </div>
+        <form id="signupForm">
+          <input type="text" class="form-control" id="name" placeholder="NOME COMPLETO" required>
+          <input type="email" class="form-control" id="signupEmail" placeholder="EMAIL" required>
+          <input type="password" class="form-control" id="signupPassword" placeholder="SENHA" required>
+          <button type="submit" class="btn btn-dark btn-full">CADASTRE</button>
+        </form>
+        <div id="message" class="message"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+</body>
+</html>
