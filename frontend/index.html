@@ -1,76 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA</title>
-  <link rel="stylesheet" href="./css/home.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURA</title>
+    <link rel="stylesheet" href="./css/home.css" />
+  </head>
 
-  <!-- Header -->
-  <header class="navbar">
-    <div class="logo">AURA</div>
-    <nav>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Personagens</a></li>
-        <li><a href="#">Sobre Nós</a></li>
-        <li><a href="#">Vídeo</a></li>
-        <li><a href="#" class="login-btn">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  <body>
+    <!-- ==========================
+         🧭 NAVBAR
+    =========================== -->
+    <header class="navbar">
+      <div class="logo">AURA</div>
+      <nav>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#characters">Personagens</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+        </ul>
+      </nav>
+      <li><a href="./login.html" class="login-btn">LOGIN</a></li>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>AURA</h1>
-      <h3>Aprendizagem com Uso de Realidade Aumentada</h3>
-      <p>O AURA foi criado para tornar o aprendizado mais divertido, criativo e inclusivo, unindo personagens que trazem histórias e perspectivas únicas. As crianças aprendem com empatia, tecnologia e imaginação.</p>
-      <a href="#" class="btn">Vamos começar?</a>
-    </div>
-    <div class="hero-image">
-      <div class="glow"></div>
-      <img src="img/image_24-removebg-preview.png" alt="Coruja Nocti">
-    </div>
-    <img src="img/nuvem1.png" alt="Nuvem" class="cloud cloud-left">
-    <img src="img/nuvem2.png" alt="Nuvem" class="cloud cloud-right">
-  </section>
+    <!-- ==========================
+         🌟 HERO SECTION
+    =========================== -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="text">
+          <h1>AURA</h1>
+          <h3>Aprendizagem com Uso de Realidade Aumentada</h3>
+          <p>
+            O AURA foi criado para tornar a aprendizagem mais divertida,
+            acessível e inclusiva, usando personagens que trazem histórias e
+            perspectivas únicas. Assim, as crianças aprendem com empatia.
+          </p>
+          <button class="cta">Vamos começar?</button>
+        </div>
 
-  <!-- Personagens -->
-  <section class="personagens">
-    <h2>Nossos personagens</h2>
-    <p class="objetivo">Nosso Objetivo</p>
-
-    <div class="personagem">
-      <div class="circle"><div class="glow-small"></div><img src="img/image_24-removebg-preview.png" alt="Nocti"></div>
-      <div class="text">
-        <h3>Nocti</h3>
-        <p>“Feche os olhos... escute. O que você ouve além dos sons? Eu te ajudo a descobrir.”</p>
+        <div class="image">
+          <img src="../img/coruja.png" alt="Coruja AURA" />
+        </div>
       </div>
-      <img src="img/nuvem1.png" class="cloud-left-sm" alt="Nuvem">
-    </div>
+      <img src="../img/nuvem.png" alt="Nuvem" class="cloud left" />
+    </section>
 
-    <div class="personagem">
-      <div class="circle"><img src="img/image 21_waifu2x_art_scan_noise3_scale 2.png" alt="Mobi"></div>
-      <div class="text">
-        <h3>Mobi</h3>
-        <p>“Toda mão, toda pé, toda roda pode brincar! Vamos juntos?”</p>
+    <!-- ==========================
+         🧍‍♂️ PERSONAGENS
+    =========================== -->
+    <section class="characters" id="characters">
+      <h2 class="section-title">Nossos Personagens</h2>
+      <p class="section-subtitle">Conheça os amigos do AURA</p>
+
+      <!-- 🦉 NOCTI -->
+      <div class="character nocti">
+        <div class="character-text">
+          <h3>Nocti</h3>
+          <p>
+            “Feche os olhos... escute. O que você ouve além dos sons? Eu te
+            ajudo a descobrir.”
+          </p>
+        </div>
+
+        <div class="character-img">
+          <img src="../img/coruja.png" alt="Nocti" />
+          <img src="../img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
+        </div>
       </div>
-      <img src="img/nuvem2.png" class="cloud-right-sm" alt="Nuvem">
-    </div>
 
-    <div class="personagem">
-      <div class="circle"><img src="img/image_27-removebg-preview.png" alt="Emi"></div>
-      <div class="text">
-        <h3>Emi</h3>
-        <p>“Seu coração tem voz. Deixe-me ajudar você a escutá-la.”</p>
+      <!-- 🐒 MOBI -->
+      <div class="character mobi">
+        
+
+        <div class="character-img">
+          <img src="../img/macaco.png" alt="Mobi" />
+          <img src="../img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
+        </div>
+        <div class="character-text">
+          <h3>Mobi</h3>
+          <p>O macaquinho curioso e aventureiro!</p>
+        </div>
       </div>
-      <img src="img/nuvem3.png" class="cloud-left-sm" alt="Nuvem">
-    </div>
-  </section>
 
-</body>
+      <!-- 🐘 ELEFANTE -->
+      <div class="character elefante">
+        <div class="character-text">
+          <h3>Luno</h3>
+          <p>
+            Um elefante gentil que ensina a importância da memória e da
+            amizade.
+          </p>
+        </div>
+
+        <div class="character-img">
+          <img src="../img/elefante.png" alt="Elefante Luno" />
+          <img src="../img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================
+         📘 SOBRE NÓS
+    =========================== -->
+   <!-- ==========================
+     📘 SOBRE NÓS
+=========================== -->
+<!-- ==========================
+     📘 SOBRE NÓS + AJUDA & CONTATO
+=========================== -->
+<section class="sobre" id="sobre">
+  <div class="sobre-container">
+    <h1>Sobre Nós</h1>
+    <p>
+      Somos uma equipe dedicada a tornar a educação mais inclusiva e acessível
+      por meio da tecnologia. O sistema <strong>AURA</strong> une um aplicativo
+      móvel e um dispositivo IoT, permitindo que crianças aprendam de forma
+      lúdica com cartas físicas interativas e minigames educativos.
+    </p>
+    <p>
+      Nosso objetivo é integrar aprendizado, diversão e inclusão, promovendo
+      uma experiência que respeita o ritmo e as necessidades de cada criança.
+    </p>
+  </div>
+
+  <!-- 🔵 Semicírculo com personagens + ajuda e contato -->
+  <div class="sobre-bottom">
+    <!-- Parte superior: personagens assistindo TV -->
+    <div class="sobre-img-top">
+      <img src="../img/amigos.png" alt="Personagens AURA assistindo TV" />
+    </div>
+
+    <!-- Parte inferior: Ajuda & Contato -->
+    <div class="ajuda-contato">
+      <div class="ajuda-texto">
+        <h2>Ajuda & Contato</h2>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i> +55 (11) 93036-4625</li>
+          <li><i class="fa-brands fa-tiktok"></i> @auraeduca</li>
+          <li><i class="fa-brands fa-x-twitter"></i> @auraeduca</li>
+          <li><i class="fa-brands fa-instagram"></i> @auraeduca</li>
+          <li><i class="fa-brands fa-facebook"></i> @auraeduca</li>
+        </ul>
+      </div>
+
+      <div class="ajuda-img">
+        <img src="../img/friends.png" alt="Personagens AURA felizes" />
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- ==========================
+         🎬 SCRIPTS
+    =========================== -->
+
+    
+    <script src="./js/animations.js"></script>
+  </body>
 </html>

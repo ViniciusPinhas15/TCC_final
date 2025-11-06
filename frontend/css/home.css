@@ -1,213 +1,585 @@
+/* ==========================
+   🔧 RESET E BASE
+========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: linear-gradient(180deg, #381b6b 0%, #6b3fa0 50%, #a87de0 100%);
+  background: linear-gradient(to bottom, #b47cff, #4c2bb6);
   color: #fff;
   overflow-x: hidden;
 }
 
-/* Navbar */
+/* ==========================
+   🧭 NAVBAR
+========================== */
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 60px;
-  position: fixed;
-  width: 100%;
+  padding: 25px 80px;
+  position: absolute;
   top: 0;
-  background: rgba(40, 0, 90, 0.7);
-  backdrop-filter: blur(8px);
+  left: 0;
   z-index: 10;
 }
 
-.logo {
-  font-size: 1.5rem;
+.navbar .logo {
   font-weight: 700;
+  font-size: 24px;
 }
 
 .navbar ul {
-  display: flex;
   list-style: none;
-  gap: 25px;
+  display: flex;
+  gap: 40px;
 }
 
 .navbar a {
-  color: #fff;
   text-decoration: none;
+  color: #fff;
+  font-weight: 500;
   transition: 0.3s;
 }
 
 .navbar a:hover {
-  color: #e6c2ff;
+  color: #c6a5ff;
 }
 
 .login-btn {
-  background: #8b5cf6;
-  padding: 8px 15px;
-  border-radius: 20px;
+  background: #5a1eff;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-/* Hero Section */
+.login-btn:hover {
+  background: #3b11b3;
+}
+
+/* ==========================
+   🌟 HERO SECTION
+========================== */
 .hero {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 160px 60px 100px;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 120px 80px 80px;
   position: relative;
 }
 
 .hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  gap: 120px;
+}
+
+/* Texto principal */
+.text {
   max-width: 500px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  color: #fff;
-}
-
-.hero h3 {
-  margin-top: 10px;
-  font-weight: 500;
-  color: #e0c8ff;
-}
-
-.hero p {
-  margin: 15px 0;
-  line-height: 1.5;
-}
-
-.btn {
-  display: inline-block;
-  background: #8b5cf6;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #a06ff8;
-}
-
-.hero-image {
-  position: relative;
-}
-
-.hero-image img {
-  width: 280px;
-  z-index: 2;
-  position: relative;
-}
-
-.glow {
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
-  border-radius: 50%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  filter: blur(40px);
-}
-
-/* Nuvens */
-.cloud {
-  position: absolute;
-  width: 120px;
-  opacity: 0.9;
-}
-
-.cloud-left { left: 30px; bottom: 80px; }
-.cloud-right { right: 40px; top: 120px; }
-
-/* Personagens Section */
-.personagens {
-  text-align: center;
-  padding: 60px 20px 100px;
-  position: relative;
-}
-
-.personagens h2 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-}
-
-.objetivo {
-  font-size: 0.9rem;
-  margin-bottom: 40px;
-  color: #d6baff;
-}
-
-.personagem {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 50px auto;
-  flex-direction: column;
-}
-
-.circle {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #5a2b9e, #2a0a50);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.circle img {
-  width: 140px;
-  z-index: 2;
-  position: relative;
-}
-
-.glow-small {
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(30px);
-  z-index: 1;
-}
-
-.text {
-  max-width: 300px;
-  margin-top: 15px;
+.text h1 {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .text h3 {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #d9caff;
+  margin-bottom: 20px;
 }
 
 .text p {
-  font-size: 0.95rem;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #e7dfff;
+  margin-bottom: 30px;
 }
 
-/* Pequenas nuvens */
-.cloud-left-sm, .cloud-right-sm {
+/* Botão CTA */
+.cta {
+  background: linear-gradient(to right, #6f3aff, #3b11b3);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(100, 50, 255, 0.4);
+  transition: 0.3s;
+}
+
+.cta:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================
+   💫 IMAGEM COM BRILHO
+========================== */
+.image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image::before {
+  content: "";
   position: absolute;
-  width: 90px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(173, 121, 255, 0.4) 0%, rgba(173, 121, 255, 0) 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.image img {
+  width: 420px;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+/* ==========================
+   ☁️ NUVENS GERAIS
+========================== */
+.cloud {
+  position: absolute;
+  bottom: 30px;
+  width: 250px;
   opacity: 0.9;
+  z-index: 0;
+  animation: cloudFloat 7s ease-in-out infinite;
 }
 
-.cloud-left-sm {
-  left: 10%;
-  top: 20%;
+.cloud.left { left: 50px; }
+.cloud.right { right: 50px; }
+
+@keyframes cloudFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.95; }
+  50% { transform: translateY(-12px); opacity: 1; }
 }
 
-.cloud-right-sm {
-  right: 10%;
-  bottom: 10%;
+/* ==========================
+   🧍‍♂️ PERSONAGENS
+========================== */
+.characters {
+  background: linear-gradient(to bottom, #4c2bb6, #2b1672);
+  text-align: center;
+  padding: 100px 20px;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #d4c5ff;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.section-title.visible,
+.section-subtitle.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1.2s ease-out;
+}
+
+.character.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Texto */
+.character-text {
+  max-width: 400px;
+  text-align: left;
+}
+
+.character-text h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.character-text p {
+  font-size: 18px;
+  color: #e7dfff;
+  line-height: 1.6;
+}
+
+/* ==========================
+   🟣 IMAGEM DO PERSONAGEM
+========================== */
+.character-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #3b1d8a 0%, transparent 70%);
+  box-shadow: 0 0 50px rgba(120, 60, 255, 0.4);
+  animation: glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 35px rgba(120, 60, 255, 0.3); }
+  to { box-shadow: 0 0 75px rgba(160, 80, 255, 0.6); }
+}
+
+.character-img img:first-child {
+  width: 200px;
+  z-index: 2;
+  animation: characterFloat 5.5s ease-in-out infinite;
+}
+
+@keyframes characterFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ==========================
+   ☁️ AJUSTES INDIVIDUAIS DAS NUVENS
+========================== */
+
+/* 🦉 Nocti (Coruja) */
+.character:nth-child(3) .cloud.decor {
+  position: absolute;
+  width: 250px;
+  right: -90px;
+  top: -50px;
+  opacity: 0.9;
+  z-index: 1;
+  animation: cloudFloat 7s ease-in-out infinite;
+}
+
+/* 🐒 Mobi (Macaco) */
+.character.mobi .cloud.decor {
+  position: absolute;
+  width: 250px;
+  left: -90px;
+  top: -50px;
+  opacity: 0.9;
+  z-index: 1;
+  animation: cloudFloat 7s ease-in-out infinite;
+}
+
+/* 🐘 Elefante */
+.character:nth-child(5) .cloud.decor {
+  position: absolute;
+  width: 250px;
+  right: -130px;
+  top: -30px;
+  opacity: 0.9;
+  z-index: 1;
+  animation: cloudFloat 7s ease-in-out infinite;
+}
+
+/* ==========================
+   📱 RESPONSIVIDADE
+========================== */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .image::before {
+    width: 400px;
+    height: 400px;
+  }
+
+  .text h1 { font-size: 48px; }
+  .text p { font-size: 16px; }
+
+  .image img { width: 300px; }
+
+  .character {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .character-text {
+    text-align: center;
+  }
+}
+/* ==========================
+   📘 SOBRE NÓS
+========================== */
+.sobre {
+  position: relative;
+  background-image: url("../../img/sobre-bg.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px 0 20px;
+  overflow: hidden;
+}
+
+.sobre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(35, 20, 70, 0.6);
+  z-index: 0;
+}
+
+.sobre-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sobre h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.sobre p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* 🔵 Parte inferior em formato de semicírculo */
+.sobre-bottom {
+  position: relative;
+  background: linear-gradient(to bottom, #4a3ba8, #2b1d7c, #1a104d);
+  width: 100%;
+  border-top-left-radius: 100% 900px;
+  border-top-right-radius: 100% 900px;
+  margin-top: 100px;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* mantém tudo centralizado */
+  overflow: hidden;
+  z-index: 2;
+}
+
+.sobre-bottom img {
+  width: 700px;
+  margin-top: -20px; /* sobe levemente a imagem */
+  z-index: 3; /* ajusta a posição para parecer que está dentro do semicírculo */
+}
+
+/* ==========================
+   📘 SOBRE NÓS + AJUDA & CONTATO
+=========================== */
+/* ==========================
+   📘 SOBRE NÓS + AJUDA & CONTATO
+=========================== */
+.sobre {
+  position: relative;
+  background-image: url("../../img/sobre-bg.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px 0 20px;
+  overflow: hidden;
+}
+
+.sobre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(35, 20, 70, 0.6);
+  z-index: 0;
+}
+
+.sobre-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sobre h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.sobre p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* 🔵 Parte inferior (semicírculo contínuo) */
+.sobre-bottom {
+  position: relative;
+  background: linear-gradient(to bottom, #4a3ba8, #2b1d7c, #1a104d);
+  width: 100%;
+  border-top-left-radius: 100% 900px;
+  border-top-right-radius: 100% 900px;
+  margin-top: 100px;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* 🌙 Parte de cima do semicírculo (imagem dos personagens à esquerda e mais alta) */
+.sobre-img-top {
+  display: flex;
+  justify-content: center; /* 👈 centraliza horizontalmente */
+  width: 100%;
+}
+
+.sobre-img-top img {
+  width: 800px;
+  max-width: 90%;
+  margin-top: -130px; /* sobe levemente a imagem dentro da curva */
+  z-index: 3;
+}
+
+/* ==========================
+   📞 AJUDA & CONTATO DENTRO DO SEMICÍRCULO
+=========================== */
+.ajuda-contato {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+  max-width: 1000px;
+  padding: 60px 20px 100px;
+  text-align: left;
+  flex-direction: row; /* imagem à esquerda, texto à direita */
+}
+
+.ajuda-img {
+  order: 0; /* imagem primeiro */
+}
+
+.ajuda-texto {
+  max-width: 400px;
+  order: 1; /* texto depois */
+}
+
+.ajuda-texto h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.ajuda-texto ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ajuda-texto li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #e5dbff;
+}
+
+.ajuda-texto i {
+  font-size: 1.4rem;
+  color: #b590ff;
+}
+
+.ajuda-img img {
+  width: 500px;
+  max-width: 90%;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ✨ Animação suave */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 📱 Responsivo */
+@media (max-width: 900px) {
+  .ajuda-contato {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .ajuda-texto {
+    text-align: center;
+  }
+
+  .ajuda-texto h2 {
+    text-align: center;
+  }
+
+  .sobre-img-top {
+    justify-content: center; /* centraliza no mobile */
+    top: -30px; /* sobe um pouco menos no mobile */
+    padding-left: 0;
+  }
+
+  .sobre-img-top img {
+    width: 400px;
+  }
 }
