@@ -583,3 +583,64 @@ body {
     width: 400px;
   }
 }
+/* ===== MENU PERFIL ===== */
+.profile-menu {
+  position: relative;
+}
+
+.profile-btn {
+  background: #3f3d56;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.profile-btn:hover {
+  opacity: 0.9;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: #fff;
+  width: 180px;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.25s ease-in-out;
+  z-index: 20;
+}
+
+.dropdown.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.dropdown a {
+  padding: 12px;
+  text-decoration: none;
+  color: #3f3d56;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.dropdown a:hover {
+  background: #efefef;
+}
+
+.logout {
+  color: #d03333 !important;
+}
+.logout:hover {
+  background: #ffdddd !important;
+}
