@@ -5,58 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AURA</title>
     <link rel="stylesheet" href="./frontend/css/home.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
 
   <body>
+    <!-- ========== HEADER ========== -->
+    <header class="navbar">
+      <div class="logo">AURA</div>
 
-    
-    <!-- ========== HEADER (apenas 1x) ========== -->
-   <header class="navbar">
-  <div class="logo">AURA</div>
+      <!-- Botão do menu (hambúrguer) -->
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-  <nav>
-    <ul class="nav-links">
-      <li><a href="#characters">Personagens</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-    </ul>
-  </nav>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#characters">Personagens</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+      </nav>
 
-  <!-- área de autenticação alinhada à direita -->
-  <div class="auth-area">
-    <!-- botão de login (visível quando deslogado) -->
-    <a id="loginBtn" href="login.html" class="login-btn">Login</a>
+      <!-- Área de autenticação -->
+      <div class="auth-area">
+        <!-- Botão de login (quando deslogado) -->
+        <a id="loginBtn" href="login.html" class="login-btn">Login</a>
 
-    <!-- menu de perfil (visível quando logado) -->
-    <div id="profileMenu" class="profile-menu">
-      <button id="profileBtn" class="profile-btn" aria-haspopup="true" aria-expanded="false">
-        <span id="userName">Usuário</span>
-        <i class="fa-solid fa-caret-down"></i>
-      </button>
+        <!-- Menu de perfil (quando logado) -->
+        <div id="profileMenu" class="profile-menu">
+          <button
+            id="profileBtn"
+            class="profile-btn"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span id="userName">Usuário</span>
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
 
-      <div id="dropdownMenu" class="dropdown" aria-hidden="true">
-        <a href="perfil.html" id="alterarDados"><i class="fa-solid fa-id-card"></i> Alterar Dados</a>
-        <button id="logoutBtn" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+          <div id="dropdownMenu" class="dropdown" aria-hidden="true">
+            <a href="perfil.html" id="alterarDados">
+              <i class="fa-solid fa-id-card"></i> Alterar Dados
+            </a>
+            <button id="logoutBtn" class="logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</header>
+    </header>
 
+    <!-- Mensagem (erro/sucesso) -->
+    <div id="message" style="position: fixed; top: 90px; right: 20px; z-index: 9999;"></div>
 
-
-
-    <!-- Espaço para mensagens (erro/sucesso) -->
-    <div id="message" style="position:fixed;top:90px;right:20px;z-index:9999;"></div>
-
-    <!-- ====== RESTO DO SITE (igual ao seu) ====== -->
+    <!-- ====== HERO ====== -->
     <section class="hero">
       <div class="hero-content">
         <div class="text">
           <h1>AURA</h1>
           <h3>Aprendizagem com Uso de Realidade Aumentada</h3>
-          <p>O AURA foi criado para tornar a aprendizagem mais divertida,
-            acessível e inclusiva, usando personagens que trazem histórias e
-            perspectivas únicas. Assim, as crianças aprendem com empatia.</p>
+          <p>
+            O AURA foi criado para tornar a aprendizagem mais divertida, acessível e inclusiva, usando personagens que trazem histórias e perspectivas únicas.
+            Assim, as crianças aprendem com empatia.
+          </p>
           <button class="cta">Vamos começar?</button>
         </div>
 
@@ -67,6 +78,7 @@
       <img src="./img/nuvem.png" alt="Nuvem" class="cloud left" />
     </section>
 
+    <!-- ====== PERSONAGENS ====== -->
     <section class="characters" id="characters">
       <h2 class="section-title">Nossos Personagens</h2>
       <p class="section-subtitle">Conheça os amigos do AURA</p>
@@ -74,8 +86,10 @@
       <div class="character nocti">
         <div class="character-text">
           <h3>Nocti</h3>
-          <p>“Feche os olhos... escute. O que você ouve além dos sons? Eu te
-          ajudo a descobrir.”</p>
+          <p>
+            “Feche os olhos... escute. O que você ouve além dos sons? Eu te
+            ajudo a descobrir.”
+          </p>
         </div>
         <div class="character-img">
           <img src="./img/coruja.png" alt="Nocti" />
@@ -97,7 +111,10 @@
       <div class="character elefante">
         <div class="character-text">
           <h3>Luno</h3>
-          <p>Um elefante gentil que ensina a importância da memória e da amizade.</p>
+          <p>
+            Um elefante gentil que ensina a importância da memória e da
+            amizade.
+          </p>
         </div>
         <div class="character-img">
           <img src="./img/elefante.png" alt="Elefante Luno" />
@@ -106,6 +123,7 @@
       </div>
     </section>
 
+    <!-- ====== SOBRE ====== -->
     <section class="sobre" id="sobre">
       <div class="sobre-container">
         <h1>Sobre Nós</h1>
@@ -137,14 +155,19 @@
       </div>
     </section>
 
-    <!-- ========== SCRIPTS ==========
-         NOTE A ORDEM: Firebase SDKs -> firebase.js -> outros scripts
-    ================================== -->
+    <!-- ====== SCRIPTS ====== -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
     <script src="./backend/firebase.js"></script>
     <script src="./frontend/js/animations.js"></script>
+
+    <!-- Script para menu mobile -->
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("show");
+      }
+    </script>
   </body>
 </html>
