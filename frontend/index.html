@@ -5,37 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AURA</title>
     <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </head>
 
   <body>
-    <!-- ==========================
-         🧭 NAVBAR
-    =========================== -->
-    <header class="navbar">
-      <div class="logo">AURA</div>
-      <nav>
-        <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#characters">Personagens</a></li>
-          <li><a href="#sobre">Sobre Nós</a></li>
-        </ul>
-      </nav>
-      <li><a href="./login.html" class="login-btn">LOGIN</a></li>
-    </header>
 
-    <!-- ==========================
-         🌟 HERO SECTION
-    =========================== -->
+    
+    <!-- ========== HEADER (apenas 1x) ========== -->
+   <header class="navbar">
+  <div class="logo">AURA</div>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#characters">Personagens</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+    </ul>
+  </nav>
+
+  <!-- área de autenticação alinhada à direita -->
+  <div class="auth-area">
+    <!-- botão de login (visível quando deslogado) -->
+    <a id="loginBtn" href="./login.html" class="login-btn">Login</a>
+
+    <!-- menu de perfil (visível quando logado) -->
+    <div id="profileMenu" class="profile-menu">
+      <button id="profileBtn" class="profile-btn" aria-haspopup="true" aria-expanded="false">
+        <span id="userName">Usuário</span>
+        <i class="fa-solid fa-caret-down"></i>
+      </button>
+
+      <div id="dropdownMenu" class="dropdown" aria-hidden="true">
+        <a href="./perfil.html" id="alterarDados"><i class="fa-solid fa-id-card"></i> Alterar Dados</a>
+        <button id="logoutBtn" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+    <!-- Espaço para mensagens (erro/sucesso) -->
+    <div id="message" style="position:fixed;top:90px;right:20px;z-index:9999;"></div>
+
+    <!-- ====== RESTO DO SITE (igual ao seu) ====== -->
     <section class="hero">
       <div class="hero-content">
         <div class="text">
           <h1>AURA</h1>
           <h3>Aprendizagem com Uso de Realidade Aumentada</h3>
-          <p>
-            O AURA foi criado para tornar a aprendizagem mais divertida,
+          <p>O AURA foi criado para tornar a aprendizagem mais divertida,
             acessível e inclusiva, usando personagens que trazem histórias e
-            perspectivas únicas. Assim, as crianças aprendem com empatia.
-          </p>
+            perspectivas únicas. Assim, as crianças aprendem com empatia.</p>
           <button class="cta">Vamos começar?</button>
         </div>
 
@@ -46,33 +67,23 @@
       <img src="../img/nuvem.png" alt="Nuvem" class="cloud left" />
     </section>
 
-    <!-- ==========================
-         🧍‍♂️ PERSONAGENS
-    =========================== -->
     <section class="characters" id="characters">
       <h2 class="section-title">Nossos Personagens</h2>
       <p class="section-subtitle">Conheça os amigos do AURA</p>
 
-      <!-- 🦉 NOCTI -->
       <div class="character nocti">
         <div class="character-text">
           <h3>Nocti</h3>
-          <p>
-            “Feche os olhos... escute. O que você ouve além dos sons? Eu te
-            ajudo a descobrir.”
-          </p>
+          <p>“Feche os olhos... escute. O que você ouve além dos sons? Eu te
+          ajudo a descobrir.”</p>
         </div>
-
         <div class="character-img">
           <img src="../img/coruja.png" alt="Nocti" />
           <img src="../img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
         </div>
       </div>
 
-      <!-- 🐒 MOBI -->
       <div class="character mobi">
-        
-
         <div class="character-img">
           <img src="../img/macaco.png" alt="Mobi" />
           <img src="../img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
@@ -83,16 +94,11 @@
         </div>
       </div>
 
-      <!-- 🐘 ELEFANTE -->
       <div class="character elefante">
         <div class="character-text">
           <h3>Luno</h3>
-          <p>
-            Um elefante gentil que ensina a importância da memória e da
-            amizade.
-          </p>
+          <p>Um elefante gentil que ensina a importância da memória e da amizade.</p>
         </div>
-
         <div class="character-img">
           <img src="../img/elefante.png" alt="Elefante Luno" />
           <img src="../img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
@@ -100,62 +106,45 @@
       </div>
     </section>
 
-    <!-- ==========================
-         📘 SOBRE NÓS
-    =========================== -->
-   <!-- ==========================
-     📘 SOBRE NÓS
-=========================== -->
-<!-- ==========================
-     📘 SOBRE NÓS + AJUDA & CONTATO
-=========================== -->
-<section class="sobre" id="sobre">
-  <div class="sobre-container">
-    <h1>Sobre Nós</h1>
-    <p>
-      Somos uma equipe dedicada a tornar a educação mais inclusiva e acessível
-      por meio da tecnologia. O sistema <strong>AURA</strong> une um aplicativo
-      móvel e um dispositivo IoT, permitindo que crianças aprendam de forma
-      lúdica com cartas físicas interativas e minigames educativos.
-    </p>
-    <p>
-      Nosso objetivo é integrar aprendizado, diversão e inclusão, promovendo
-      uma experiência que respeita o ritmo e as necessidades de cada criança.
-    </p>
-  </div>
-
-  <!-- 🔵 Semicírculo com personagens + ajuda e contato -->
-  <div class="sobre-bottom">
-    <!-- Parte superior: personagens assistindo TV -->
-    <div class="sobre-img-top">
-      <img src="../img/amigos.png" alt="Personagens AURA assistindo TV" />
-    </div>
-
-    <!-- Parte inferior: Ajuda & Contato -->
-    <div class="ajuda-contato">
-      <div class="ajuda-texto">
-        <h2>Ajuda & Contato</h2>
-        <ul>
-          <li><i class="fa-solid fa-phone"></i> +55 (11) 93036-4625</li>
-          <li><i class="fa-brands fa-tiktok"></i> @auraeduca</li>
-          <li><i class="fa-brands fa-x-twitter"></i> @auraeduca</li>
-          <li><i class="fa-brands fa-instagram"></i> @auraeduca</li>
-          <li><i class="fa-brands fa-facebook"></i> @auraeduca</li>
-        </ul>
+    <section class="sobre" id="sobre">
+      <div class="sobre-container">
+        <h1>Sobre Nós</h1>
+        <p>Somos uma equipe dedicada a tornar a educação mais inclusiva...</p>
+        <p>Nosso objetivo é integrar aprendizado, diversão e inclusão...</p>
       </div>
 
-      <div class="ajuda-img">
-        <img src="../img/friends.png" alt="Personagens AURA felizes" />
+      <div class="sobre-bottom">
+        <div class="sobre-img-top">
+          <img src="../img/amigos.png" alt="Personagens AURA assistindo TV" />
+        </div>
+
+        <div class="ajuda-contato">
+          <div class="ajuda-texto">
+            <h2>Ajuda & Contato</h2>
+            <ul>
+              <li><i class="fa-solid fa-phone"></i> +55 (11) 93036-4625</li>
+              <li><i class="fa-brands fa-tiktok"></i> @auraeduca</li>
+              <li><i class="fa-brands fa-x-twitter"></i> @auraeduca</li>
+              <li><i class="fa-brands fa-instagram"></i> @auraeduca</li>
+              <li><i class="fa-brands fa-facebook"></i> @auraeduca</li>
+            </ul>
+          </div>
+
+          <div class="ajuda-img">
+            <img src="../img/friends.png" alt="Personagens AURA felizes" />
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-    <!-- ==========================
-         🎬 SCRIPTS
-    =========================== -->
+    <!-- ========== SCRIPTS ==========
+         NOTE A ORDEM: Firebase SDKs -> firebase.js -> outros scripts
+    ================================== -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-    
+    <script src="../backend/firebase.js"></script>
     <script src="./js/animations.js"></script>
   </body>
 </html>
