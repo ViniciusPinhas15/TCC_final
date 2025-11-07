@@ -1,80 +1,160 @@
-/* ==========================
-   🔧 RESET E BASE
-========================== */
+/* ==============================
+   RESET E BASE
+============================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: linear-gradient(to bottom, #b47cff, #4c2bb6);
-  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  background-color: #faf7ff;
+  color: #333;
   overflow-x: hidden;
 }
 
-/* ==========================
-   🧭 NAVBAR
-========================== */
+/* ==============================
+   NAVBAR
+============================== */
 .navbar {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 80px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  background: #fff;
+  color: #5b2ecc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-.navbar .logo {
-  font-weight: 700;
-  font-size: 24px;
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #5b2ecc;
+  letter-spacing: 1px;
 }
 
-.navbar ul {
+/* LINKS DO MENU */
+.nav-links {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 2rem;
 }
 
-.navbar a {
+.nav-links li a {
   text-decoration: none;
-  color: #fff;
+  color: #333;
   font-weight: 500;
-  transition: 0.3s;
+  transition: color 0.3s ease;
 }
 
-.navbar a:hover {
-  color: #c6a5ff;
+.nav-links li a:hover {
+  color: #5b2ecc;
+}
+
+/* MENU HAMBÚRGUER (visível apenas no mobile) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #5b2ecc;
+  cursor: pointer;
+}
+
+/* ==============================
+   ÁREA DE AUTENTICAÇÃO
+============================== */
+.auth-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .login-btn {
-  background: #5a1eff;
+  background: #5b2ecc;
   color: #fff;
   border: none;
-  padding: 10px 25px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s ease;
 }
 
 .login-btn:hover {
-  background: #3b11b3;
+  background: #3d1f91;
 }
 
-/* ==========================
-   🌟 HERO SECTION
-========================== */
-.hero {
+/* MENU DE PERFIL */
+.profile-menu {
+  position: relative;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 500;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.dropdown.show {
+  display: flex;
+}
+
+.dropdown a,
+.dropdown button {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border: none;
+  background: none;
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.dropdown a:hover,
+.dropdown button:hover {
+  background: #f3edff;
+}
+
+/* ==============================
+   HERO
+============================== */
+.hero {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
   min-height: 100vh;
-  padding: 120px 80px 80px;
+  background: linear-gradient(180deg, #f8f6ff, #ffffff);
   position: relative;
 }
 
@@ -82,342 +162,246 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 1200px;
-  gap: 120px;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 
-.text {
+.hero .text {
   max-width: 500px;
 }
 
-.text h1 {
-  font-size: 64px;
+.hero h1 {
+  font-size: 3rem;
+  color: #5b2ecc;
   font-weight: 700;
-  margin-bottom: 15px;
 }
 
-.text h3 {
-  font-size: 20px;
-  font-weight: 400;
-  color: #d9caff;
-  margin-bottom: 20px;
+.hero h3 {
+  font-size: 1.3rem;
+  margin: 0.8rem 0;
+  color: #333;
 }
 
-.text p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #e7dfff;
-  margin-bottom: 30px;
+.hero p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
 }
 
-.cta {
-  background: linear-gradient(to right, #6f3aff, #3b11b3);
-  color: white;
+.hero .cta {
+  background: #5b2ecc;
+  color: #fff;
   border: none;
-  padding: 14px 36px;
-  border-radius: 40px;
-  font-size: 18px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 4px 20px rgba(100, 50, 255, 0.4);
-  transition: 0.3s;
+  transition: background 0.3s ease;
 }
 
-.cta:hover {
-  transform: scale(1.05);
+.hero .cta:hover {
+  background: #3d1f91;
 }
 
-/* ==========================
-   💫 IMAGEM COM BRILHO
-========================== */
-.image {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hero .image img {
+  max-width: 300px;
 }
 
-.image::before {
-  content: "";
+.cloud.left {
   position: absolute;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(173, 121, 255, 0.4) 0%, rgba(173, 121, 255, 0) 70%);
-  border-radius: 50%;
-  filter: blur(100px);
-  animation: glowPulse 4s ease-in-out infinite;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  opacity: 0.4;
 }
 
-.image img {
-  width: 420px;
-  height: auto;
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes glowPulse {
-  0%, 100% { transform: scale(1); opacity: 0.9; }
-  50% { transform: scale(1.08); opacity: 1; }
-}
-
-/* ==========================
-   ☁️ NUVENS GERAIS
-========================== */
-.cloud {
-  position: absolute;
-  bottom: 30px;
-  width: 250px;
-  opacity: 0.9;
-  z-index: 0;
-  animation: cloudFloat 7s ease-in-out infinite;
-}
-
-.cloud.left { left: 50px; }
-.cloud.right { right: 50px; }
-
-@keyframes cloudFloat {
-  0%, 100% { transform: translateY(0); opacity: 0.95; }
-  50% { transform: translateY(-12px); opacity: 1; }
-}
-
-/* ==========================
-   🧍‍♂️ PERSONAGENS
-========================== */
+/* ==============================
+   PERSONAGENS
+============================== */
 .characters {
-  background: linear-gradient(to bottom, #4c2bb6, #2b1672);
+  padding: 4rem 2rem;
   text-align: center;
-  padding: 100px 20px;
-  overflow: hidden;
 }
 
 .section-title {
-  font-size: 42px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  color: #5b2ecc;
+  margin-bottom: 0.5rem;
 }
 
 .section-subtitle {
-  font-size: 18px;
-  font-weight: 400;
-  color: #d4c5ff;
-  margin-bottom: 80px;
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 3rem;
 }
 
 .character {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.character-text {
-  max-width: 400px;
-  text-align: left;
-}
-
-.character-text h3 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.character-text p {
-  font-size: 18px;
-  color: #e7dfff;
-  line-height: 1.6;
-}
-
-/* ==========================
-   🟣 IMAGEM DO PERSONAGEM
-========================== */
-.character-img {
-  position: relative;
-  display: flex;
   align-items: center;
   justify-content: center;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #3b1d8a 0%, transparent 70%);
-  box-shadow: 0 0 50px rgba(120, 60, 255, 0.4);
-  animation: glow 6s ease-in-out infinite alternate;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.character-img img:first-child {
-  width: 200px;
+.character-img img {
+  max-width: 200px;
+  position: relative;
   z-index: 2;
-  animation: characterFloat 5.5s ease-in-out infinite;
 }
 
-/* ==========================
-   📘 SOBRE NÓS
-========================== */
+.character .cloud.decor {
+  position: absolute;
+  z-index: 1;
+  width: 180px;
+  opacity: 0.6;
+  transform: translate(-50%, -30%);
+}
+
+/* ==============================
+   SOBRE
+============================== */
 .sobre {
-  position: relative;
-  background-image: url("../../img/sobre-bg.png");
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px 0 20px;
+  padding: 5rem 2rem;
+  background: #f7f4ff;
 }
 
 .sobre-container {
-  max-width: 900px;
-  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.sobre h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.sobre-container h1 {
+  font-size: 2rem;
+  color: #5b2ecc;
+  margin-bottom: 1rem;
 }
 
-.sobre p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
+.sobre-container p {
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 1rem;
 }
 
-/* ==========================
-   📞 AJUDA & CONTATO
-========================== */
+.sobre-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
 .ajuda-contato {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 80px;
-  padding: 60px 20px 100px;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ajuda-texto ul {
+  list-style: none;
   text-align: left;
 }
 
-.ajuda-texto {
-  max-width: 400px;
-}
-
-.ajuda-texto h2 {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
-}
-
 .ajuda-texto li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-}
-
-/* ==========================
-   🧑‍💼 MENU DE PERFIL
-========================== */
-.profile-menu {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.profile-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(90deg, #6c4bff, #5126c7);
-  color: #fff;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-
-.profile-btn:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #7b5cff, #5a31de);
-}
-
-.profile-photo {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  object-fit: cover;
-  background-color: #ddd;
-}
-
-/* ===== DROPDOWN ===== */
-.dropdown {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  display: none;
-  flex-direction: column;
-  min-width: 200px;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.25s ease-in-out;
-  z-index: 99;
-}
-
-.dropdown.show {
-  display: flex;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdown a {
-  padding: 12px 16px;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
   color: #333;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.2s;
 }
 
-.dropdown a:hover {
-  background: #f4f1ff;
+.ajuda-texto i {
+  color: #5b2ecc;
+  margin-right: 8px;
 }
 
-.dropdown .logout {
-  color: #d32f2f;
-  font-weight: 600;
+.ajuda-img img {
+  max-width: 220px;
 }
 
-.dropdown .logout:hover {
-  background: #ffe6e6;
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+/* Telas menores que 900px */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero .image img {
+    max-width: 250px;
+  }
+
+  .character {
+    flex-direction: column;
+  }
 }
 
-/* ==========================
-   📱 RESPONSIVIDADE COMPLETA
-========================== */
+/* Telas menores que 768px */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 999;
+  }
 
-/* Tablets */
-@media (max-width: 1024px) {
-  .navbar { padding: 20px 40px; }
-  .hero-content { flex-direction: column; text-align: center; gap: 60px; }
-  .text h1 { font-size: 50px; }
-  .image img { width: 320px; }
-  .character { flex-direction: column; gap: 50px; }
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .auth-area {
+    gap: 0.5rem;
+  }
+
+  .login-btn {
+    padding: 0.5rem 0.9rem;
+  }
 }
 
-/* Celulares */
-@media (max-width: 600px) {
-  .navbar { padding: 15px 20px; flex-direction: column; gap: 10px; }
-  .navbar ul { flex-direction: column; gap: 15px; }
-  .hero { padding: 100px 20px; }
-  .text h1 { font-size: 36px; }
-  .text p { font-size: 16px; }
-  .cta { padding: 12px 26px; font-size: 16px; }
-  .image img { width: 250px; }
-  .character-text h3 { font-size: 22px; }
-  .character-text p { font-size: 16px; }
-  .ajuda-contato { flex-direction: column; text-align: center; gap: 40px; }
-  .ajuda-texto h2 { font-size: 1.8rem; }
-  .profile-btn { padding: 8px 14px; font-size: 14px; }
+/* Telas menores que 480px */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero h3 {
+    font-size: 1rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero .cta {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .character-img img {
+    max-width: 150px;
+  }
+
+  .ajuda-texto li {
+    font-size: 0.9rem;
+  }
 }
