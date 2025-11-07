@@ -86,7 +86,6 @@ body {
   gap: 120px;
 }
 
-/* Texto principal */
 .text {
   max-width: 500px;
 }
@@ -111,7 +110,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* Botão CTA */
 .cta {
   background: linear-gradient(to right, #6f3aff, #3b11b3);
   color: white;
@@ -196,9 +194,6 @@ body {
   font-size: 42px;
   font-weight: 600;
   margin-bottom: 15px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-out;
 }
 
 .section-subtitle {
@@ -206,15 +201,6 @@ body {
   font-weight: 400;
   color: #d4c5ff;
   margin-bottom: 80px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-out;
-}
-
-.section-title.visible,
-.section-subtitle.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .character {
@@ -225,17 +211,8 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: all 1.2s ease-out;
 }
 
-.character.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Texto */
 .character-text {
   max-width: 400px;
   text-align: left;
@@ -269,89 +246,12 @@ body {
   animation: glow 6s ease-in-out infinite alternate;
 }
 
-@keyframes glow {
-  from { box-shadow: 0 0 35px rgba(120, 60, 255, 0.3); }
-  to { box-shadow: 0 0 75px rgba(160, 80, 255, 0.6); }
-}
-
 .character-img img:first-child {
   width: 200px;
   z-index: 2;
   animation: characterFloat 5.5s ease-in-out infinite;
 }
 
-@keyframes characterFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* ==========================
-   ☁️ AJUSTES INDIVIDUAIS DAS NUVENS
-========================== */
-
-/* 🦉 Nocti (Coruja) */
-.character:nth-child(3) .cloud.decor {
-  position: absolute;
-  width: 250px;
-  right: -90px;
-  top: -50px;
-  opacity: 0.9;
-  z-index: 1;
-  animation: cloudFloat 7s ease-in-out infinite;
-}
-
-/* 🐒 Mobi (Macaco) */
-.character.mobi .cloud.decor {
-  position: absolute;
-  width: 250px;
-  left: -90px;
-  top: -50px;
-  opacity: 0.9;
-  z-index: 1;
-  animation: cloudFloat 7s ease-in-out infinite;
-}
-
-/* 🐘 Elefante */
-.character:nth-child(5) .cloud.decor {
-  position: absolute;
-  width: 250px;
-  right: -130px;
-  top: -30px;
-  opacity: 0.9;
-  z-index: 1;
-  animation: cloudFloat 7s ease-in-out infinite;
-}
-
-/* ==========================
-   📱 RESPONSIVIDADE
-========================== */
-@media (max-width: 900px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 50px;
-  }
-
-  .image::before {
-    width: 400px;
-    height: 400px;
-  }
-
-  .text h1 { font-size: 48px; }
-  .text p { font-size: 16px; }
-
-  .image img { width: 300px; }
-
-  .character {
-    flex-direction: column;
-    text-align: center;
-    gap: 50px;
-  }
-
-  .character-text {
-    text-align: center;
-  }
-}
 /* ==========================
    📘 SOBRE NÓS
 ========================== */
@@ -363,23 +263,9 @@ body {
   color: #fff;
   text-align: center;
   padding: 100px 20px 0 20px;
-  overflow: hidden;
-}
-
-.sobre::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(35, 20, 70, 0.6);
-  z-index: 0;
 }
 
 .sobre-container {
-  position: relative;
-  z-index: 1;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -387,7 +273,6 @@ body {
 .sobre h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  font-weight: 600;
 }
 
 .sobre p {
@@ -396,139 +281,26 @@ body {
   margin-bottom: 15px;
 }
 
-/* 🔵 Parte inferior em formato de semicírculo */
-.sobre-bottom {
-  position: relative;
-  background: linear-gradient(to bottom, #4a3ba8, #2b1d7c, #1a104d);
-  width: 100%;
-  border-top-left-radius: 100% 900px;
-  border-top-right-radius: 100% 900px;
-  margin-top: 100px;
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* mantém tudo centralizado */
-  overflow: hidden;
-  z-index: 2;
-}
-
-.sobre-bottom img {
-  width: 700px;
-  margin-top: -20px; /* sobe levemente a imagem */
-  z-index: 3; /* ajusta a posição para parecer que está dentro do semicírculo */
-}
-
 /* ==========================
-   📘 SOBRE NÓS + AJUDA & CONTATO
-=========================== */
-/* ==========================
-   📘 SOBRE NÓS + AJUDA & CONTATO
-=========================== */
-.sobre {
-  position: relative;
-  background-image: url("../../img/sobre-bg.png");
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px 0 20px;
-  overflow: hidden;
-}
-
-.sobre::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(35, 20, 70, 0.6);
-  z-index: 0;
-}
-
-.sobre-container {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.sobre h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.sobre p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-/* 🔵 Parte inferior (semicírculo contínuo) */
-.sobre-bottom {
-  position: relative;
-  background: linear-gradient(to bottom, #4a3ba8, #2b1d7c, #1a104d);
-  width: 100%;
-  border-top-left-radius: 100% 900px;
-  border-top-right-radius: 100% 900px;
-  margin-top: 100px;
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  z-index: 2;
-}
-
-/* 🌙 Parte de cima do semicírculo (imagem dos personagens à esquerda e mais alta) */
-.sobre-img-top {
-  display: flex;
-  justify-content: center; /* 👈 centraliza horizontalmente */
-  width: 100%;
-}
-
-.sobre-img-top img {
-  width: 800px;
-  max-width: 90%;
-  margin-top: -130px; /* sobe levemente a imagem dentro da curva */
-  z-index: 3;
-}
-
-/* ==========================
-   📞 AJUDA & CONTATO DENTRO DO SEMICÍRCULO
-=========================== */
+   📞 AJUDA & CONTATO
+========================== */
 .ajuda-contato {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 80px;
-  max-width: 1000px;
   padding: 60px 20px 100px;
   text-align: left;
-  flex-direction: row; /* imagem à esquerda, texto à direita */
-}
-
-.ajuda-img {
-  order: 0; /* imagem primeiro */
 }
 
 .ajuda-texto {
   max-width: 400px;
-  order: 1; /* texto depois */
 }
 
 .ajuda-texto h2 {
   font-size: 2.2rem;
-  font-weight: 600;
   margin-bottom: 25px;
-  color: #fff;
-}
-
-.ajuda-texto ul {
-  list-style: none;
-  padding: 0;
 }
 
 .ajuda-texto li {
@@ -537,237 +309,10 @@ body {
   gap: 12px;
   margin-bottom: 15px;
   font-size: 1.1rem;
-  color: #e5dbff;
 }
 
-.ajuda-texto i {
-  font-size: 1.4rem;
-  color: #b590ff;
-}
-
-.ajuda-img img {
-  width: 500px;
-  max-width: 90%;
-  animation: float 5s ease-in-out infinite;
-}
-
-/* ✨ Animação suave */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* 📱 Responsivo */
-@media (max-width: 900px) {
-  .ajuda-contato {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .ajuda-texto {
-    text-align: center;
-  }
-
-  .ajuda-texto h2 {
-    text-align: center;
-  }
-
-  .sobre-img-top {
-    justify-content: center; /* centraliza no mobile */
-    top: -30px; /* sobe um pouco menos no mobile */
-    padding-left: 0;
-  }
-
-  .sobre-img-top img {
-    width: 400px;
-  }
-}
-/* ===== MENU PERFIL ===== */
-.profile-menu {
-  position: relative;
-}
-
-.profile-btn {
-  background: #3f3d56;
-  color: #fff;
-  padding: 10px 22px;
-  border-radius: 22px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.profile-btn:hover {
-  opacity: 0.9;
-}
-
-.dropdown {
-  position: absolute;
-  right: 0;
-  top: 50px;
-  background: #fff;
-  width: 180px;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-  display: none;
-  flex-direction: column;
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: all 0.25s ease-in-out;
-  z-index: 20;
-}
-
-.dropdown.show {
-  display: flex;
-  opacity: 1;
-  transform: translateY(0px);
-}
-
-.dropdown a {
-  padding: 12px;
-  text-decoration: none;
-  color: #3f3d56;
-  font-size: 14px;
-  border-radius: 8px;
-}
-
-.dropdown a:hover {
-  background: #efefef;
-}
-
-.logout {
-  color: #d03333 !important;
-}
-.logout:hover {
-  background: #ffdddd !important;
-}
-/* ===== MENU PERFIL ===== */
-.profile-menu {
-  position: relative;
-}
-
-.profile-btn {
-  background: #5a1eff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  color: #fff;
-}
-
-.dropdown {
-  position: absolute;
-  right: 0;
-  top: 45px;
-  background: #ffffff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.2);
-  display: none;
-  flex-direction: column;
-  transform: translateY(-8px);
-  opacity: 0;
-  transition: all .25s ease-in-out;
-}
-
-.dropdown.show {
-  display: flex;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdown a {
-  padding: 12px;
-  text-decoration: none;
-  color: #3f3d56;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.dropdown a:hover {
-  background: #eee;
-}
-
-.logout {
-  color: #c0392b !important;
-}
-.logout:hover {
-  background: #ffe5e5 !important;
-}
-.profile-photo {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-/* === MENU DE PERFIL === */
-.profile-menu {
-  position: relative;
-  display: inline-block;
-}
-
-.profile-btn {
-  background: #673ab7;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: background 0.3s;
-}
-
-.profile-btn:hover {
-  background: #5e35b1;
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 45px;
-  background-color: #fff;
-  border-radius: 10px;
-  min-width: 180px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  overflow: hidden;
-  z-index: 999;
-  animation: fadeIn 0.3s ease;
-}
-
-.dropdown a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background 0.3s;
-}
-
-.dropdown a:hover {
-  background-color: #f3e5f5;
-}
-
-.logout {
-  color: #c62828 !important;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(-10px);}
-  to {opacity: 1; transform: translateY(0);}
-}
 /* ==========================
-   🧑‍💼 MENU DE PERFIL (OTIMIZADO)
+   🧑‍💼 MENU DE PERFIL
 ========================== */
 .profile-menu {
   position: relative;
@@ -846,4 +391,33 @@ body {
 
 .dropdown .logout:hover {
   background: #ffe6e6;
+}
+
+/* ==========================
+   📱 RESPONSIVIDADE COMPLETA
+========================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .navbar { padding: 20px 40px; }
+  .hero-content { flex-direction: column; text-align: center; gap: 60px; }
+  .text h1 { font-size: 50px; }
+  .image img { width: 320px; }
+  .character { flex-direction: column; gap: 50px; }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .navbar { padding: 15px 20px; flex-direction: column; gap: 10px; }
+  .navbar ul { flex-direction: column; gap: 15px; }
+  .hero { padding: 100px 20px; }
+  .text h1 { font-size: 36px; }
+  .text p { font-size: 16px; }
+  .cta { padding: 12px 26px; font-size: 16px; }
+  .image img { width: 250px; }
+  .character-text h3 { font-size: 22px; }
+  .character-text p { font-size: 16px; }
+  .ajuda-contato { flex-direction: column; text-align: center; gap: 40px; }
+  .ajuda-texto h2 { font-size: 1.8rem; }
+  .profile-btn { padding: 8px 14px; font-size: 14px; }
 }
