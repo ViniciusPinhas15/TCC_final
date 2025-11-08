@@ -1,0 +1,201 @@
+/* ==========================
+   🎨 ESTILO GERAL - EDITAR PERFIL (AURA)
+========================== */
+:root {
+  --primary: #6f3aff;
+  --primary-dark: #4c2bb6;
+  --background: #f4f3ff;
+  --surface: #fff;
+  --text: #2c234d;
+  --on-surface-light: #6a6590;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body.profile-page {
+  background: linear-gradient(to bottom right, #b47cff, #4c2bb6);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================
+   🧭 NAVBAR
+========================== */
+.navbar {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  padding: 18px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #d6c8ff;
+}
+
+/* ==========================
+   👤 CONTAINER DE PERFIL
+========================== */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 60px 20px;
+}
+
+.profile-form {
+  background: var(--surface);
+  padding: 40px 50px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.8s ease;
+}
+
+.profile-form h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--primary-dark);
+}
+
+/* ==========================
+   📝 FORMULÁRIO
+========================== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #d8d6f5;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 58, 255, 0.2);
+}
+
+.form-text {
+  font-size: 13px;
+  color: var(--on-surface-light);
+  margin-top: 5px;
+  display: block;
+}
+
+/* ==========================
+   💾 BOTÃO PRINCIPAL
+========================== */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: scale(1.03);
+  background: linear-gradient(to right, #7b55ff, #5a31de);
+}
+
+.btn-full {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+/* ==========================
+   ⚙️ ANIMAÇÃO SUAVE
+========================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================
+   📱 RESPONSIVO
+========================== */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .profile-form {
+    padding: 30px 25px;
+  }
+
+  .profile-form h2 {
+    font-size: 22px;
+  }
+
+  .btn-full {
+    font-size: 15px;
+  }
+}

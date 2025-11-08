@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cadastro | AURA</title>
-  <link rel="stylesheet" href="./css/cadastro.css">
+  <link rel="stylesheet" href="./frontend/css/cadastro.css">
 </head>
 <body class="auth-page">
   <div class="auth-container">
     <div class="auth-col auth-col-left">
+      <button class="back-btn" onclick="window.location.href='index.html'">← Voltar</button>
       <h2>Cadastre seu usuário!</h2>
       <p>É um fato estabelecido há muito tempo que um leitor será distraído pelo conteúdo legível de uma página.</p>
     </div>
@@ -23,7 +24,19 @@
           <input type="email" class="form-control" id="signupEmail" placeholder="EMAIL" required>
           <input type="password" class="form-control" id="signupPassword" placeholder="SENHA" required>
           <button type="submit" class="btn btn-dark btn-full">CADASTRE</button>
+
+          <div class="social-buttons">
+            <div class="social-btn">
+              Google
+            </div>
+            <div class="social-btn">
+              Facebook
+            </div>
+          </div>
         </form>
+
+        
+   
         <div id="message" class="message"></div>
       </div>
     </div>

@@ -1,160 +1,80 @@
-/* ==============================
-   RESET E BASE
-============================== */
+/* ==========================
+   🔧 RESET E BASE
+========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #faf7ff;
-  color: #333;
+  background: linear-gradient(to bottom, #b47cff, #4c2bb6);
+  color: #fff;
   overflow-x: hidden;
 }
 
-/* ==============================
-   NAVBAR
-============================== */
+/* ==========================
+   🧭 NAVBAR
+========================== */
 .navbar {
   width: 100%;
-  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 80px;
+  position: absolute;
   top: 0;
   left: 0;
-  background: #fff;
-  color: #5b2ecc;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 10;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #5b2ecc;
-  letter-spacing: 1px;
+.navbar .logo {
+  font-weight: 700;
+  font-size: 24px;
 }
 
-/* LINKS DO MENU */
-.nav-links {
+.navbar ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 40px;
 }
 
-.nav-links li a {
+.navbar a {
   text-decoration: none;
-  color: #333;
+  color: #fff;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: 0.3s;
 }
 
-.nav-links li a:hover {
-  color: #5b2ecc;
-}
-
-/* MENU HAMBÚRGUER (visível apenas no mobile) */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: #5b2ecc;
-  cursor: pointer;
-}
-
-/* ==============================
-   ÁREA DE AUTENTICAÇÃO
-============================== */
-.auth-area {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.navbar a:hover {
+  color: #c6a5ff;
 }
 
 .login-btn {
-  background: #5b2ecc;
+  background: #5a1eff;
   color: #fff;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background 0.3s ease;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .login-btn:hover {
-  background: #3d1f91;
+  background: #3b11b3;
 }
 
-/* MENU DE PERFIL */
-.profile-menu {
-  position: relative;
-}
-
-.profile-btn {
-  background: none;
-  border: none;
-  color: #333;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  display: none;
-  flex-direction: column;
-  min-width: 180px;
-}
-
-.dropdown.show {
-  display: flex;
-}
-
-.dropdown a,
-.dropdown button {
-  padding: 0.8rem 1rem;
-  text-align: left;
-  border: none;
-  background: none;
-  font-size: 0.95rem;
-  color: #333;
-  cursor: pointer;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.3s ease;
-}
-
-.dropdown a:hover,
-.dropdown button:hover {
-  background: #f3edff;
-}
-
-/* ==============================
-   HERO
-============================== */
+/* ==========================
+   🌟 HERO SECTION
+========================== */
 .hero {
-  padding-top: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   min-height: 100vh;
-  background: linear-gradient(180deg, #f8f6ff, #ffffff);
+  padding: 120px 80px 80px;
   position: relative;
 }
 
@@ -162,246 +82,1107 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  gap: 120px;
 }
 
-.hero .text {
+/* Texto principal */
+.text {
   max-width: 500px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  color: #5b2ecc;
+.text h1 {
+  font-size: 64px;
   font-weight: 700;
+  margin-bottom: 15px;
 }
 
-.hero h3 {
-  font-size: 1.3rem;
-  margin: 0.8rem 0;
-  color: #333;
+.text h3 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #d9caff;
+  margin-bottom: 20px;
 }
 
-.hero p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1.5rem;
+.text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #e7dfff;
+  margin-bottom: 30px;
 }
 
-.hero .cta {
-  background: #5b2ecc;
-  color: #fff;
+/* Botão CTA */
+.cta {
+  background: linear-gradient(to right, #6f3aff, #3b11b3);
+  color: white;
   border: none;
-  padding: 0.9rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 14px 36px;
+  border-radius: 40px;
+  font-size: 18px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(100, 50, 255, 0.4);
+  transition: 0.3s;
 }
 
-.hero .cta:hover {
-  background: #3d1f91;
+.cta:hover {
+  transform: scale(1.05);
 }
 
-.hero .image img {
-  max-width: 300px;
+/* ==========================
+   💫 IMAGEM COM BRILHO
+========================== */
+.image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(
+    circle,
+    rgba(173, 121, 255, 0.4) 0%,
+    rgba(173, 121, 255, 0) 70%
+  );
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.image img {
+  width: 420px;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* ==========================
+   ☁️ NUVENS GERAIS
+========================== */
+.cloud {
+  position: absolute;
+  bottom: 30px;
+  width: 250px;
+  opacity: 0.9;
+  z-index: 0;
+  animation: cloudFloat 7s ease-in-out infinite;
 }
 
 .cloud.left {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40%;
-  opacity: 0.4;
+  left: 50px;
+}
+.cloud.right {
+  right: 50px;
 }
 
-/* ==============================
-   PERSONAGENS
-============================== */
+@keyframes cloudFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+}
+
+/* ==========================
+   🧍‍♂️ PERSONAGENS
+========================== */
 .characters {
-  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, #4c2bb6, #2b1672);
   text-align: center;
+  padding: 100px 20px;
+  overflow: hidden;
 }
 
 .section-title {
-  font-size: 2rem;
-  color: #5b2ecc;
-  margin-bottom: 0.5rem;
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
 }
 
 .section-subtitle {
-  font-size: 1rem;
-  color: #777;
-  margin-bottom: 3rem;
+  font-size: 18px;
+  font-weight: 400;
+  color: #d4c5ff;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.section-title.visible,
+.section-subtitle.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .character {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.character-img img {
-  max-width: 200px;
+  align-items: center;
+  gap: 80px;
+  max-width: 1000px;
+  margin: 0 auto;
   position: relative;
-  z-index: 2;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1.2s ease-out;
 }
 
-.character .cloud.decor {
-  position: absolute;
-  z-index: 1;
-  width: 180px;
-  opacity: 0.6;
-  transform: translate(-50%, -30%);
+.character.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ==============================
-   SOBRE
-============================== */
-.sobre {
-  padding: 5rem 2rem;
-  background: #f7f4ff;
-}
-
-.sobre-container {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.sobre-container h1 {
-  font-size: 2rem;
-  color: #5b2ecc;
-  margin-bottom: 1rem;
-}
-
-.sobre-container p {
-  color: #555;
-  max-width: 600px;
-  margin: 0 auto 1rem;
-}
-
-.sobre-bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.ajuda-contato {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  align-items: center;
-}
-
-.ajuda-texto ul {
-  list-style: none;
+/* Texto */
+.character-text {
+  max-width: 400px;
   text-align: left;
 }
 
-.ajuda-texto li {
-  margin-bottom: 0.6rem;
-  font-size: 1rem;
-  color: #333;
+.character-text h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.ajuda-texto i {
-  color: #5b2ecc;
-  margin-right: 8px;
+.character-text p {
+  font-size: 18px;
+  color: #e7dfff;
+  line-height: 1.6;
 }
 
-.ajuda-img img {
-  max-width: 220px;
+/* ==========================
+   🟣 IMAGEM DO PERSONAGEM
+========================== */
+.character-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #3b1d8a 0%, transparent 70%);
+  box-shadow: 0 0 50px rgba(120, 60, 255, 0.4);
+  animation: glow 6s ease-in-out infinite alternate;
 }
 
-/* ==============================
-   RESPONSIVIDADE
-============================== */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 35px rgba(120, 60, 255, 0.3);
+  }
+  to {
+    box-shadow: 0 0 75px rgba(160, 80, 255, 0.6);
+  }
+}
 
-/* Telas menores que 900px */
+.character-img img:first-child {
+  width: 200px;
+  z-index: 2;
+  animation: characterFloat 5.5s ease-in-out infinite;
+}
+
+@keyframes characterFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ==========================
+   ☁️ AJUSTES INDIVIDUAIS DAS NUVENS
+========================== */
+
+/* 🦉 Nocti (Coruja) */
+.character:nth-child(3) .cloud.decor {
+  position: absolute;
+  width: 250px;
+  right: -90px;
+  top: -50px;
+  opacity: 0.9;
+  z-index: 1;
+  animation: cloudFloat 7s ease-in-out infinite;
+}
+
+/* 🐒 Mobi (Macaco) */
+.character.mobi .cloud.decor {
+  position: absolute;
+  width: 250px;
+  left: -90px;
+  top: -50px;
+  opacity: 0.9;
+  z-index: 1;
+  animation: cloudFloat 7s ease-in-out infinite;
+}
+
+/* 🐘 Elefante */
+.character:nth-child(5) .cloud.decor {
+  position: absolute;
+  width: 250px;
+  right: -130px;
+  top: -30px;
+  opacity: 0.9;
+  z-index: 1;
+  animation: cloudFloat 7s ease-in-out infinite;
+}
+
+/* ==========================
+   📱 RESPONSIVIDADE
+========================== */
 @media (max-width: 900px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
+    gap: 50px;
   }
 
-  .hero .image img {
-    max-width: 250px;
+  .image::before {
+    width: 400px;
+    height: 400px;
+  }
+
+  .text h1 {
+    font-size: 48px;
+  }
+  .text p {
+    font-size: 16px;
+  }
+
+  .image img {
+    width: 300px;
   }
 
   .character {
     flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .character-text {
+    text-align: center;
+  }
+}
+/* ==========================
+   📘 SOBRE NÓS
+========================== */
+.sobre {
+  position: relative;
+  background-image: url("../../img/sobre-bg.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px 0 20px;
+  overflow: hidden;
+}
+
+.sobre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(35, 20, 70, 0.6);
+  z-index: 0;
+}
+
+.sobre-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sobre h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.sobre p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* 🔵 Parte inferior em formato de semicírculo */
+.sobre-bottom {
+  position: relative;
+  background: linear-gradient(to bottom, #4a3ba8, #2b1d7c, #1a104d);
+  width: 100%;
+  border-top-left-radius: 100% 900px;
+  border-top-right-radius: 100% 900px;
+  margin-top: 100px;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* mantém tudo centralizado */
+  overflow: hidden;
+  z-index: 2;
+}
+
+.sobre-bottom img {
+  width: 700px;
+  margin-top: -20px; /* sobe levemente a imagem */
+  z-index: 3; /* ajusta a posição para parecer que está dentro do semicírculo */
+}
+
+/* ==========================
+   📘 SOBRE NÓS + AJUDA & CONTATO
+=========================== */
+/* ==========================
+   📘 SOBRE NÓS + AJUDA & CONTATO
+=========================== */
+.sobre {
+  position: relative;
+  background-image: url("../../img/sobre-bg.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px 0 20px;
+  overflow: hidden;
+}
+
+.sobre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(35, 20, 70, 0.6);
+  z-index: 0;
+}
+
+.sobre-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sobre h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.sobre p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* 🔵 Parte inferior (semicírculo contínuo) */
+.sobre-bottom {
+  position: relative;
+  background: linear-gradient(to bottom, #4a3ba8, #2b1d7c, #1a104d);
+  width: 100%;
+  border-top-left-radius: 100% 900px;
+  border-top-right-radius: 100% 900px;
+  margin-top: 100px;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* 🌙 Parte de cima do semicírculo (imagem dos personagens à esquerda e mais alta) */
+.sobre-img-top {
+  display: flex;
+  justify-content: center; /* 👈 centraliza horizontalmente */
+  width: 100%;
+}
+
+.sobre-img-top img {
+  width: 800px;
+  max-width: 90%;
+  margin-top: -130px; /* sobe levemente a imagem dentro da curva */
+  z-index: 3;
+}
+
+/* ==========================
+   📞 AJUDA & CONTATO DENTRO DO SEMICÍRCULO
+=========================== */
+.ajuda-contato {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+  max-width: 1000px;
+  padding: 60px 20px 100px;
+  text-align: left;
+  flex-direction: row; /* imagem à esquerda, texto à direita */
+}
+
+.ajuda-img {
+  order: 0; /* imagem primeiro */
+}
+
+.ajuda-texto {
+  max-width: 400px;
+  order: 1; /* texto depois */
+}
+
+.ajuda-texto h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.ajuda-texto ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ajuda-texto li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #e5dbff;
+}
+
+.ajuda-texto i {
+  font-size: 1.4rem;
+  color: #b590ff;
+}
+
+.ajuda-img img {
+  width: 500px;
+  max-width: 90%;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ✨ Animação suave */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
-/* Telas menores que 768px */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
+/* 📱 Responsivo */
+@media (max-width: 900px) {
+  .ajuda-contato {
     flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    z-index: 999;
+    text-align: center;
+    gap: 40px;
   }
 
-  .nav-links.show {
-    display: flex;
+  .ajuda-texto {
+    text-align: center;
   }
 
-  .menu-toggle {
-    display: block;
+  .ajuda-texto h2 {
+    text-align: center;
   }
 
-  .auth-area {
-    gap: 0.5rem;
+  .sobre-img-top {
+    justify-content: center; /* centraliza no mobile */
+    top: -30px; /* sobe um pouco menos no mobile */
+    padding-left: 0;
+  }
+
+  .sobre-img-top img {
+    width: 400px;
+  }
+}
+/* ===== MENU PERFIL ===== */
+.profile-menu {
+  position: relative;
+}
+
+.profile-btn {
+  background: #3f3d56;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.profile-btn:hover {
+  opacity: 0.9;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: #fff;
+  width: 180px;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.25s ease-in-out;
+  z-index: 20;
+}
+
+.dropdown.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.dropdown a {
+  padding: 12px;
+  text-decoration: none;
+  color: #3f3d56;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.dropdown a:hover {
+  background: #efefef;
+}
+
+.logout {
+  color: #d03333 !important;
+}
+.logout:hover {
+  background: #ffdddd !important;
+}
+/* ===== MENU PERFIL ===== */
+.profile-menu {
+  position: relative;
+}
+
+.profile-btn {
+  background: #5a1eff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background: #ffffff;
+  width: 200px;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  transform: translateY(-8px);
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.dropdown.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown a {
+  padding: 12px;
+  text-decoration: none;
+  color: #3f3d56;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dropdown a:hover {
+  background: #eee;
+}
+
+.logout {
+  color: #c0392b !important;
+}
+.logout:hover {
+  background: #ffe5e5 !important;
+}
+.profile-photo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* === MENU DE PERFIL === */
+.profile-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  background: #673ab7;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.profile-btn:hover {
+  background: #5e35b1;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background-color: #fff;
+  border-radius: 10px;
+  min-width: 180px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.dropdown a:hover {
+  background-color: #f3e5f5;
+}
+
+.logout {
+  color: #c62828 !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ==========================
+   🧑‍💼 MENU DE PERFIL (OTIMIZADO)
+========================== */
+.profile-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #6c4bff, #5126c7);
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #7b5cff, #5a31de);
+}
+
+.profile-photo {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #ddd;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  display: none;
+  flex-direction: column;
+  min-width: 200px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.25s ease-in-out;
+  z-index: 99;
+}
+
+.dropdown.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown a {
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.dropdown a:hover {
+  background: #f4f1ff;
+}
+
+.dropdown .logout {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.dropdown .logout:hover {
+  background: #ffe6e6;
+}
+
+/* ============================
+   📱 RESPONSIVO GERAL (PADRÃO UNIFICADO)
+============================ */
+@media (max-width: 768px) {
+  /* 🔹 Navbar */
+  .navbar {
+    flex-direction: column;
+    padding: 20px 30px;
+    gap: 20px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
 
   .login-btn {
-    padding: 0.5rem 0.9rem;
-  }
-}
-
-/* Telas menores que 480px */
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.2rem;
+    padding: 10px 20px;
   }
 
-  .hero h3 {
+  /* 🔹 Hero */
+  .hero {
+    padding: 100px 30px 60px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .text h1 {
+    font-size: 42px;
+  }
+
+  .text h3 {
+    font-size: 18px;
+  }
+
+  .text p {
+    font-size: 16px;
+  }
+
+  .cta {
+    padding: 12px 28px;
+    font-size: 16px;
+  }
+
+  .image img {
+    width: 280px;
+  }
+
+  .image::before {
+    width: 320px;
+    height: 320px;
+  }
+
+  /* 🔹 Personagens */
+  .character {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .character-text {
+    text-align: center;
+  }
+
+  .character-img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .character-img img:first-child {
+    width: 180px;
+  }
+
+  /* 🔹 Sobre nós */
+  .sobre {
+    padding: 80px 20px 0 20px;
+  }
+
+  .sobre h1 {
+    font-size: 2rem;
+  }
+
+  .sobre p {
     font-size: 1rem;
   }
 
-  .hero p {
-    font-size: 0.9rem;
+  .sobre-img-top img {
+    width: 350px;
+    margin-top: -70px;
   }
 
-  .hero .cta {
-    font-size: 0.9rem;
-    padding: 0.8rem 1.2rem;
+  .sobre-bottom {
+    margin-top: 60px;
+    padding-top: 40px;
   }
 
-  .section-title {
-    font-size: 1.5rem;
+  /* 🔹 Ajuda & Contato */
+  .ajuda-contato {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
   }
 
-  .section-subtitle {
-    font-size: 0.9rem;
+  .ajuda-texto {
+    text-align: center;
   }
 
-  .character-img img {
-    max-width: 150px;
+  .ajuda-img img {
+    width: 300px;
   }
 
-  .ajuda-texto li {
-    font-size: 0.9rem;
+  /* 🔹 Menu de Perfil */
+  .profile-menu {
+    justify-content: center;
+  }
+
+  .profile-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .dropdown {
+    top: 40px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+
+  .dropdown a {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+/* ==========================
+   📱 BOTÃO DO APK
+========================== */
+.apk-button-container {
+  text-align: center;
+  margin: 60px 0 80px;
+}
+
+.apk-btn {
+  background: linear-gradient(to right, #6f3aff, #4c2bb6);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 36px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.apk-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(111, 58, 255, 0.4);
+}
+
+/* ==========================
+   🪟 MODAL APK
+========================== */
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(25, 20, 50, 0.5);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 700px;
+  width: 90%;
+  padding: 30px 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.4s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+/* ==========================
+   ⚙️ CONTEÚDO INTERNO
+========================== */
+.modal-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.modal-left,
+.modal-right {
+  flex: 1;
+  text-align: center;
+}
+
+.modal-left h3,
+.modal-right h3 {
+  color: #4c2bb6;
+  margin-bottom: 12px;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 10px;
+  background: #6f3aff;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.download-link:hover {
+  background: #4c2bb6;
+}
+
+.qrcode-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
+
+/* Linha divisória */
+.divider {
+  width: 2px;
+  height: 120px;
+  background: #ddd;
+}
+
+/* ==========================
+   🔄 ANIMAÇÃO
+========================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 700px) {
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .divider {
+    width: 80%;
+    height: 2px;
+  }
+
+  .qrcode-img {
+    width: 130px;
+    height: 130px;
   }
 }

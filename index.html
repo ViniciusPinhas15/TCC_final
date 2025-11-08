@@ -12,12 +12,9 @@
   </head>
 
   <body>
-    <!-- ========== HEADER ========== -->
+    <!-- ========== HEADER (apenas 1x) ========== -->
     <header class="navbar">
       <div class="logo">AURA</div>
-
-      <!-- Botão do menu (hambúrguer) -->
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
       <nav>
         <ul class="nav-links">
@@ -26,12 +23,12 @@
         </ul>
       </nav>
 
-      <!-- Área de autenticação -->
+      <!-- área de autenticação alinhada à direita -->
       <div class="auth-area">
-        <!-- Botão de login (quando deslogado) -->
+        <!-- botão de login (visível quando deslogado) -->
         <a id="loginBtn" href="login.html" class="login-btn">Login</a>
 
-        <!-- Menu de perfil (quando logado) -->
+        <!-- menu de perfil (visível quando logado) -->
         <div id="profileMenu" class="profile-menu">
           <button
             id="profileBtn"
@@ -44,9 +41,9 @@
           </button>
 
           <div id="dropdownMenu" class="dropdown" aria-hidden="true">
-            <a href="perfil.html" id="alterarDados">
-              <i class="fa-solid fa-id-card"></i> Alterar Dados
-            </a>
+            <a href="perfil.html" id="alterarDados"
+              ><i class="fa-solid fa-id-card"></i> Alterar Dados</a
+            >
             <button id="logoutBtn" class="logout">
               <i class="fa-solid fa-right-from-bracket"></i> Sair
             </button>
@@ -55,18 +52,22 @@
       </div>
     </header>
 
-    <!-- Mensagem (erro/sucesso) -->
-    <div id="message" style="position: fixed; top: 90px; right: 20px; z-index: 9999;"></div>
+    <!-- Espaço para mensagens (erro/sucesso) -->
+    <div
+      id="message"
+      style="position: fixed; top: 90px; right: 20px; z-index: 9999"
+    ></div>
 
-    <!-- ====== HERO ====== -->
+    <!-- ====== RESTO DO SITE (igual ao seu) ====== -->
     <section class="hero">
       <div class="hero-content">
         <div class="text">
           <h1>AURA</h1>
           <h3>Aprendizagem com Uso de Realidade Aumentada</h3>
           <p>
-            O AURA foi criado para tornar a aprendizagem mais divertida, acessível e inclusiva, usando personagens que trazem histórias e perspectivas únicas.
-            Assim, as crianças aprendem com empatia.
+            O AURA foi criado para tornar a aprendizagem mais divertida,
+            acessível e inclusiva, usando personagens que trazem histórias e
+            perspectivas únicas. Assim, as crianças aprendem com empatia.
           </p>
           <button class="cta">Vamos começar?</button>
         </div>
@@ -78,7 +79,6 @@
       <img src="./img/nuvem.png" alt="Nuvem" class="cloud left" />
     </section>
 
-    <!-- ====== PERSONAGENS ====== -->
     <section class="characters" id="characters">
       <h2 class="section-title">Nossos Personagens</h2>
       <p class="section-subtitle">Conheça os amigos do AURA</p>
@@ -93,14 +93,22 @@
         </div>
         <div class="character-img">
           <img src="./img/coruja.png" alt="Nocti" />
-          <img src="./img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
+          <img
+            src="./img/nuvem.png"
+            class="cloud decor"
+            alt="Nuvem decorativa"
+          />
         </div>
       </div>
 
       <div class="character mobi">
         <div class="character-img">
           <img src="./img/macaco.png" alt="Mobi" />
-          <img src="./img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
+          <img
+            src="./img/nuvem.png"
+            class="cloud decor"
+            alt="Nuvem decorativa"
+          />
         </div>
         <div class="character-text">
           <h3>Mobi</h3>
@@ -112,18 +120,20 @@
         <div class="character-text">
           <h3>Luno</h3>
           <p>
-            Um elefante gentil que ensina a importância da memória e da
-            amizade.
+            Um elefante gentil que ensina a importância da memória e da amizade.
           </p>
         </div>
         <div class="character-img">
           <img src="./img/elefante.png" alt="Elefante Luno" />
-          <img src="./img/nuvem.png" class="cloud decor" alt="Nuvem decorativa" />
+          <img
+            src="./img/nuvem.png"
+            class="cloud decor"
+            alt="Nuvem decorativa"
+          />
         </div>
       </div>
     </section>
 
-    <!-- ====== SOBRE ====== -->
     <section class="sobre" id="sobre">
       <div class="sobre-container">
         <h1>Sobre Nós</h1>
@@ -134,6 +144,43 @@
       <div class="sobre-bottom">
         <div class="sobre-img-top">
           <img src="./img/amigos.png" alt="Personagens AURA assistindo TV" />
+        </div>
+
+        <!-- Botão para abrir modal -->
+        <div class="apk-button-container">
+          <h1>AQUI E O LINK E O QRCODE PARA DOWLOWAD DO NOSSO APK</h1>
+          <button id="openApkModal" class="apk-btn">Baixar App AURA</button>
+        </div>
+
+        <!-- Modal APK -->
+        <div id="apkModal" class="modal">
+          <div class="modal-content">
+            <span id="closeModal" class="close-btn">&times;</span>
+
+            <div class="modal-body">
+              <div class="modal-left">
+                <h3>Baixe o aplicativo AURA</h3>
+                <p>Clique abaixo para baixar o APK diretamente:</p>
+                <a
+                  href="https://example.com/aura.apk"
+                  class="download-link"
+                  target="_blank"
+                  >📦 Download do APK</a
+                >
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="modal-right">
+                <h3>Escaneie o QR Code</h3>
+                <img
+                  src="./img/qrcode.png"
+                  alt="QR Code do app AURA"
+                  class="qrcode-img"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="ajuda-contato">
@@ -155,7 +202,9 @@
       </div>
     </section>
 
-    <!-- ====== SCRIPTS ====== -->
+    <!-- ========== SCRIPTS ==========
+         NOTE A ORDEM: Firebase SDKs -> firebase.js -> outros scripts
+    ================================== -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -163,11 +212,53 @@
     <script src="./backend/firebase.js"></script>
     <script src="./frontend/js/animations.js"></script>
 
-    <!-- Script para menu mobile -->
-    <script>
-      function toggleMenu() {
-        document.querySelector(".nav-links").classList.toggle("show");
+   <script>
+  const modal = document.getElementById("apkModal");
+  const openBtn = document.getElementById("openApkModal");
+  const closeBtn = document.getElementById("closeModal");
+
+  let userLogged = false;
+
+  // 🔍 Monitora se há um usuário logado
+  firebase.auth().onAuthStateChanged((user) => {
+    userLogged = !!user;
+  });
+
+  // 🔒 Controle de acesso ao botão
+  openBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (userLogged) {
+      // ✅ Usuário logado → abre o modal
+      modal.style.display = "flex";
+    } else {
+      // 🚫 Usuário não logado → pede login
+      const confirmLogin = confirm(
+        "Você precisa estar logado para baixar o app.\nDeseja fazer login agora?"
+      );
+      if (confirmLogin) {
+        window.location.href = "login.html";
       }
-    </script>
+      // se cancelar, nada acontece
+    }
+  });
+
+  // ❌ Fecha o modal no botão X
+  closeBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    modal.style.display = "none";
+  });
+
+  // 🖱️ Fecha clicando fora
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  // ⎋ Fecha com ESC
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") modal.style.display = "none";
+  });
+</script>
   </body>
 </html>
