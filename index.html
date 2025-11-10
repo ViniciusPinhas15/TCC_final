@@ -295,15 +295,23 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     if (target) {
       e.preventDefault();
 
-      // Rola até o elemento suavemente
-      target.scrollIntoView({ behavior: "smooth", block: "center" });
+      // Altura fixa do header
+      const headerOffset = 100;
+      const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
 
-      // Remove qualquer destaque antigo
+      // Rola até o ponto exato
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Remove qualquer destaque anterior
       document.querySelectorAll(".highlight").forEach(el =>
         el.classList.remove("highlight")
       );
 
-      // Aplica o destaque
+      // Adiciona destaque suave dependendo do destino
       if (targetId === "app") {
         const appButton = target.querySelector(".apk-btn");
         appButton.classList.add("highlight");
@@ -315,9 +323,16 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         ajudaTitle.classList.add("highlight");
         setTimeout(() => ajudaTitle.classList.remove("highlight"), 1600);
       }
+
+      if (targetId === "sobre") {
+        const sobreTitle = target.querySelector("h1");
+        sobreTitle.classList.add("highlight");
+        setTimeout(() => sobreTitle.classList.remove("highlight"), 1600);
+      }
     }
   });
 });
+
 
 
     </script>

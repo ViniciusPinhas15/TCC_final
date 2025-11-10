@@ -1333,4 +1333,6 @@ html { scroll-behavior: smooth; }
     filter: none;
   }
 }
-
+html {
+  scroll-behavior: auto !important; /* evita conflitos com o JS */
+}
