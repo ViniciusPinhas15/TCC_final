@@ -20,6 +20,8 @@
         <ul class="nav-links">
           <li><a href="#characters">Personagens</a></li>
           <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#ajuda">Contato/Ajuda</a></li>
+          <li><a href="#app">App</a></li>
         </ul>
       </nav>
 
@@ -137,7 +139,14 @@
     <section class="sobre" id="sobre">
       <div class="sobre-container">
         <h1>Sobre Nós</h1>
-        <p>Somos uma equipe dedicada a tornar a educação mais inclusiva...</p>
+        <p>
+          Somos uma equipe dedicada a tornar a educação mais inclusiva e
+          acessível por meio da tecnologia. O sistema AURA une um aplicativo
+          móvel e um dispositivo IoT, permitindo que crianças aprendam de forma
+          lúdica com cartas físicas interativas e minigames educativos. Nosso
+          objetivo é integrar aprendizado, diversão e inclusão, promovendo uma
+          experiência que respeita o ritmo e as necessidades de cada criança.
+        </p>
         <p>Nosso objetivo é integrar aprendizado, diversão e inclusão...</p>
       </div>
 
@@ -147,8 +156,8 @@
         </div>
 
         <!-- Botão para abrir modal -->
-        <div class="apk-button-container">
-          <h1>AQUI E O LINK E O QRCODE PARA DOWLOWAD DO NOSSO APK</h1>
+        <div class="apk-button-container" id="app">
+          <h1>AQUI E O LINK E O QRCODE PARA DOWLOWAD DO NOSSO APP</h1>
           <button id="openApkModal" class="apk-btn">Baixar App AURA</button>
         </div>
 
@@ -183,7 +192,7 @@
           </div>
         </div>
 
-        <div class="ajuda-contato">
+        <div class="ajuda-contato" id="ajuda">
           <div class="ajuda-texto">
             <h2>Ajuda & Contato</h2>
             <ul>
@@ -212,53 +221,105 @@
     <script src="./backend/firebase.js"></script>
     <script src="./frontend/js/animations.js"></script>
 
-   <script>
-  const modal = document.getElementById("apkModal");
-  const openBtn = document.getElementById("openApkModal");
-  const closeBtn = document.getElementById("closeModal");
+    <script>
+      const modal = document.getElementById("apkModal");
+      const openBtn = document.getElementById("openApkModal");
+      const closeBtn = document.getElementById("closeModal");
 
-  let userLogged = false;
+      let userLogged = false;
 
-  // 🔍 Monitora se há um usuário logado
-  firebase.auth().onAuthStateChanged((user) => {
-    userLogged = !!user;
+      // 🔍 Monitora se há um usuário logado
+      firebase.auth().onAuthStateChanged((user) => {
+        userLogged = !!user;
+      });
+
+      // 🔒 Controle de acesso ao botão
+      openBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (userLogged) {
+          // ✅ Usuário logado → abre o modal
+          modal.style.display = "flex";
+        } else {
+          // 🚫 Usuário não logado → pede login
+          const confirmLogin = confirm(
+            "Você precisa estar logado para baixar o app.\nDeseja fazer login agora?"
+          );
+          if (confirmLogin) {
+            window.location.href = "login.html";
+          }
+          // se cancelar, nada acontece
+        }
+      });
+
+      // ❌ Fecha o modal no botão X
+      closeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        modal.style.display = "none";
+      });
+
+      // 🖱️ Fecha clicando fora
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+
+      // ⎋ Fecha com ESC
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") modal.style.display = "none";
+      });
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const sobreSection = document.querySelector(".sobre");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            sobreSection.classList.add("show");
+            observer.unobserve(entry.target); // ativa apenas uma vez
+          }
+        });
+      },
+      { threshold: 0.3 } // dispara quando 30% da seção está visível
+    );
+
+    observer.observe(sobreSection);
   });
+  // 💡 Anima destaque suave ao chegar na seção
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href").substring(1);
+    const target = document.getElementById(targetId);
 
-  // 🔒 Controle de acesso ao botão
-  openBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    if (target) {
+      e.preventDefault();
 
-    if (userLogged) {
-      // ✅ Usuário logado → abre o modal
-      modal.style.display = "flex";
-    } else {
-      // 🚫 Usuário não logado → pede login
-      const confirmLogin = confirm(
-        "Você precisa estar logado para baixar o app.\nDeseja fazer login agora?"
+      // Rola até o elemento suavemente
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      // Remove qualquer destaque antigo
+      document.querySelectorAll(".highlight").forEach(el =>
+        el.classList.remove("highlight")
       );
-      if (confirmLogin) {
-        window.location.href = "login.html";
+
+      // Aplica o destaque
+      if (targetId === "app") {
+        const appButton = target.querySelector(".apk-btn");
+        appButton.classList.add("highlight");
+        setTimeout(() => appButton.classList.remove("highlight"), 1600);
       }
-      // se cancelar, nada acontece
+
+      if (targetId === "ajuda") {
+        const ajudaTitle = target.querySelector("h2");
+        ajudaTitle.classList.add("highlight");
+        setTimeout(() => ajudaTitle.classList.remove("highlight"), 1600);
+      }
     }
   });
+});
 
-  // ❌ Fecha o modal no botão X
-  closeBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    modal.style.display = "none";
-  });
 
-  // 🖱️ Fecha clicando fora
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
-  });
-
-  // ⎋ Fecha com ESC
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") modal.style.display = "none";
-  });
-</script>
+    </script>
   </body>
 </html>
