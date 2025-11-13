@@ -536,22 +536,9 @@ html {
 .ajuda-contato {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 80px;
-  max-width: 1000px;
-  padding: 60px 20px 100px;
-  text-align: left;
+  justify-content: space-between;
 }
-
-.ajuda-img {
-  order: 0;
-}
-
-.ajuda-texto {
-  max-width: 400px;
-  order: 1;
-}
+.ajuda-texto { flex: 1; }
 
 .ajuda-texto h2 {
   font-size: 2.2rem;
@@ -580,7 +567,7 @@ html {
 }
 
 .ajuda-img img {
-  width: 500px;
+  width: 600px;
   max-width: 90%;
   animation: float 5s ease-in-out infinite;
 }
@@ -1213,10 +1200,6 @@ html {
 
   .ajuda-texto li {
     font-size: 0.95rem;
-  }
-
-  .ajuda-img img {
-    width: 240px;
   }
 
   .cloud {
