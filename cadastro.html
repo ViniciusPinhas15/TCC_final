@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cadastro | AURA</title>
-  <link rel="stylesheet" href="./frontend/css/cadastro.css">
-</head>
-<body class="auth-page">
-  <div class="auth-container">
-    <div class="auth-col auth-col-left">
-      <button class="back-btn" onclick="window.location.href='index.html'">← Voltar</button>
-      <h2>Cadastre seu usuário!</h2>
-      <p>É um fato estabelecido há muito tempo que um leitor será distraído pelo conteúdo legível de uma página.</p>
-    </div>
-    <div class="auth-col auth-col-right">
-      <div class="form-box">
-        <div class="form-header">
-          <h3>CADASTRO</h3>
-          <a href="login.html" class="btn btn-primary">FAÇA LOGIN</a>
-        </div>
-        <form id="signupForm">
-          <input type="text" class="form-control" id="name" placeholder="NOME COMPLETO" required>
-          <input type="email" class="form-control" id="signupEmail" placeholder="EMAIL" required>
-          <input type="password" class="form-control" id="signupPassword" placeholder="SENHA" required>
-          <button type="submit" class="btn btn-dark btn-full">CADASTRE</button>
-
-          <div class="social-buttons">
-            <div class="social-btn">
-              Google
-            </div>
-            <div class="social-btn">
-              Facebook
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro | AURA</title>
+    <link rel="stylesheet" href="./frontend/css/cadastro.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-container">
+      <div class="auth-col auth-col-left">
+        <button class="back-btn" onclick="window.location.href='index.html'">
+          ← Voltar
+        </button>
+        <h2>Cadastre seu usuário!</h2>
+        <p>
+          É um fato estabelecido há muito tempo que um leitor será distraído
+          pelo conteúdo legível de uma página.
+        </p>
+      </div>
+      <div class="auth-col auth-col-right">
+        <div class="form-box">
+          <div class="form-header">
+            <h3>CADASTRO</h3>
+            <a href="login.html" class="btn btn-primary">FAÇA LOGIN</a>
           </div>
-        </form>
+          <form id="signupForm">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="NOME COMPLETO"
+              required
+            />
+            <input
+              type="email"
+              class="form-control"
+              id="signupEmail"
+              placeholder="EMAIL"
+              required
+            />
+            <input
+              type="password"
+              class="form-control"
+              id="signupPassword"
+              placeholder="SENHA"
+              required
+            />
+            <button type="submit" class="btn btn-dark btn-full">
+              CADASTRE
+            </button>
 
-        
-   
-        <div id="message" class="message"></div>
+            <div class="social-buttons">
+              <!-- GOOGLE -->
+              <div class="social-btn google-btn">
+                <img
+                  src="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png"
+                  alt="Google"
+                  class="social-icon"
+                />
+                Entrar com Google
+              </div>
+
+              <!-- FACEBOOK -->
+              <div class="social-btn facebook-btn">
+                <img
+                  src="https://img.freepik.com/fotos-premium/facebook-logotipo_1080029-107.jpg?semt=ais_incoming&w=740&q=80"
+                  alt="Facebook"
+                  class="social-icon"
+                />
+                Entrar com Facebook
+              </div>
+            </div>
+          </form>
+
+          <div id="message" class="message"></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  <script src="../backend/firebase.js"></script>
-</body>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <script src="./backend/firebase.js"></script>
+    <script src="./backend/auth.js"></script>
+  </body>
 </html>

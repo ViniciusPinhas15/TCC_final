@@ -19,22 +19,32 @@
           <h3>LOGIN</h3>
           <a href="cadastro.html" class="btn btn-primary">CADASTRE-SE</a>
         </div>
+        
+
+        
         <form id="loginForm">
           <input type="email" class="form-control" id="email" placeholder="EMAIL" required>
           <input type="password" class="form-control" id="password" placeholder="SENHA" required>
           <button type="submit" class="btn btn-dark btn-full">ENTRAR</button>
+
+          <!-- ✅ NOVO: Link de "Esqueceu a senha?" -->
+  <div class="forgot-password">
+    <a href="#" id="forgotPasswordLink">Esqueceu sua senha?</a>
+  </div>
           
           <div class="social-buttons">
-            <div class="social-btn">
-              Google
-            </div>
-            <div class="social-btn">
-              Facebook
-            </div>
-          </div>
-        </form>
-        <div id="message" class="message"></div>
-      </div>
+  <!-- GOOGLE -->
+  <div class="social-btn google-btn">
+    <img src="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png" alt="Google" class="social-icon">
+    Entrar com Google
+  </div>
+
+  <!-- FACEBOOK -->
+  <div class="social-btn facebook-btn">
+    <img src="https://img.freepik.com/fotos-premium/facebook-logotipo_1080029-107.jpg?semt=ais_incoming&w=740&q=80" alt="Facebook" class="social-icon">
+    Entrar com Facebook
+  </div>
+</div>
     </div>
   </div>
 
@@ -44,6 +54,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
 <script src="./backend/firebase.js"></script>
+<script src="./backend/auth.js"></script>
 
 </body>
 </html>

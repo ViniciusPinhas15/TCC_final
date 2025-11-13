@@ -71,7 +71,7 @@
             acessível e inclusiva, usando personagens que trazem histórias e
             perspectivas únicas. Assim, as crianças aprendem com empatia.
           </p>
-          <button class="cta">Vamos começar?</button>
+          <a href="#app" class="cta">Vamos começar?</a>
         </div>
 
         <div class="image">
@@ -222,118 +222,205 @@
     <script src="./frontend/js/animations.js"></script>
 
     <script>
-      const modal = document.getElementById("apkModal");
-      const openBtn = document.getElementById("openApkModal");
-      const closeBtn = document.getElementById("closeModal");
+  // ========== NOTIFICAÇÃO MODERNA ==========
+  function showNotification(message, isSuccess = false) {
+    const old = document.querySelector('.notification');
+    if (old) old.remove();
 
-      let userLogged = false;
+    const notif = document.createElement('div');
+    notif.className = `notification ${isSuccess ? 'success' : 'error'}`;
+    const icon = isSuccess ? 'fa-check-circle' : 'fa-exclamation-circle';
+    notif.innerHTML = `<i class="fa-solid ${icon}"></i> ${message}`;
+    document.body.appendChild(notif);
 
-      // 🔍 Monitora se há um usuário logado
-      firebase.auth().onAuthStateChanged((user) => {
-        userLogged = !!user;
-      });
+    setTimeout(() => {
+      notif.style.animation = 'fadeOut 0.5s forwards';
+      setTimeout(() => notif.remove(), 500);
+    }, 4000);
+  }
 
-      // 🔒 Controle de acesso ao botão
-      openBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+  // ========== MODAL APK ==========
+  const modal = document.getElementById("apkModal");
+  const openBtn = document.getElementById("openApkModal");
+  const closeBtn = document.getElementById("closeModal");
 
-        if (userLogged) {
-          // ✅ Usuário logado → abre o modal
-          modal.style.display = "flex";
-        } else {
-          // 🚫 Usuário não logado → pede login
-          const confirmLogin = confirm(
-            "Você precisa estar logado para baixar o app.\nDeseja fazer login agora?"
-          );
-          if (confirmLogin) {
-            window.location.href = "login.html";
-          }
-          // se cancelar, nada acontece
-        }
-      });
+  // ========== MENU DE PERFIL ==========
+  const profileBtn = document.getElementById("profileBtn");
+  const dropdownMenu = document.getElementById("dropdownMenu");
 
-      // ❌ Fecha o modal no botão X
-      closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        modal.style.display = "none";
-      });
+  if (profileBtn && dropdownMenu) {
+    let menuVisible = false;
 
-      // 🖱️ Fecha clicando fora
-      window.addEventListener("click", (e) => {
-        if (e.target === modal) modal.style.display = "none";
-      });
+    profileBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menuVisible = !menuVisible;
+      dropdownMenu.classList.toggle("show", menuVisible);
+      profileBtn.setAttribute("aria-expanded", menuVisible);
+    });
 
-      // ⎋ Fecha com ESC
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") modal.style.display = "none";
-      });
-
-        document.addEventListener("DOMContentLoaded", () => {
-    const sobreSection = document.querySelector(".sobre");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            sobreSection.classList.add("show");
-            observer.unobserve(entry.target); // ativa apenas uma vez
-          }
-        });
-      },
-      { threshold: 0.3 } // dispara quando 30% da seção está visível
-    );
-
-    observer.observe(sobreSection);
-  });
-  // 💡 Anima destaque suave ao chegar na seção
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href").substring(1);
-    const target = document.getElementById(targetId);
-
-    if (target) {
-      e.preventDefault();
-
-      // Altura fixa do header
-      const headerOffset = 100;
-      const elementPosition = target.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
-
-      // Rola até o ponto exato
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-
-      // Remove qualquer destaque anterior
-      document.querySelectorAll(".highlight").forEach(el =>
-        el.classList.remove("highlight")
-      );
-
-      // Adiciona destaque suave dependendo do destino
-      if (targetId === "app") {
-        const appButton = target.querySelector(".apk-btn");
-        appButton.classList.add("highlight");
-        setTimeout(() => appButton.classList.remove("highlight"), 1600);
+    document.addEventListener("click", (e) => {
+      if (!profileBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        menuVisible = false;
+        dropdownMenu.classList.remove("show");
+        profileBtn.setAttribute("aria-expanded", "false");
       }
+    });
 
-      if (targetId === "ajuda") {
-        const ajudaTitle = target.querySelector("h2");
-        ajudaTitle.classList.add("highlight");
-        setTimeout(() => ajudaTitle.classList.remove("highlight"), 1600);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        menuVisible = false;
+        dropdownMenu.classList.remove("show");
+        profileBtn.setAttribute("aria-expanded", "false");
       }
+    });
+  }
 
-      if (targetId === "sobre") {
-        const sobreTitle = target.querySelector("h1");
-        sobreTitle.classList.add("highlight");
-        setTimeout(() => sobreTitle.classList.remove("highlight"), 1600);
+  // ========== CONTROLE DE LOGIN (VISIBILIDADE) ==========
+  firebase.auth().onAuthStateChanged(async (user) => {
+    const loginBtn = document.getElementById("loginBtn");
+    const profileMenu = document.getElementById("profileMenu");
+
+    if (user) {
+      if (loginBtn) loginBtn.style.display = "none";
+      if (profileMenu) profileMenu.style.display = "flex";
+
+      // Carrega nome do usuário
+      const userDoc = await firebase.firestore().collection("users").doc(user.uid).get();
+      const nameEl = document.getElementById("userName");
+      if (nameEl && userDoc.exists) {
+        nameEl.textContent = userDoc.data().name || user.email;
       }
+    } else {
+      if (loginBtn) loginBtn.style.display = "block";
+      if (profileMenu) profileMenu.style.display = "none";
     }
   });
-});
 
+  // ========== LOGOUT ==========
+  document.getElementById("logoutBtn")?.addEventListener("click", async () => {
+    try {
+      await firebase.auth().signOut();
+      showNotification("Você saiu da conta.", false);
+      setTimeout(() => window.location.href = "login.html", 1500);
+    } catch (error) {
+      showNotification("Erro ao sair.", false);
+    }
+  });
 
+  // ========== MODAL APK ==========
+  if (openBtn) {
+    openBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          modal.style.display = "flex";
+        } else {
+          if (confirm("Você precisa estar logado para baixar o app.\nDeseja fazer login agora?")) {
+            window.location.href = "login.html";
+          }
+        }
+      });
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => modal.style.display = "none");
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") modal.style.display = "none";
+  });
+
+  // ========== ANIMAÇÕES DE ROLAGEM ==========
+  document.addEventListener("DOMContentLoaded", () => {
+    const sobreSection = document.querySelector(".sobre");
+    if (sobreSection) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              sobreSection.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      observer.observe(sobreSection);
+    }
+
+    // Destaque ao clicar em links de navegação
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+
+        if (target) {
+          e.preventDefault();
+          const headerOffset = 100;
+          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+
+          document.querySelectorAll(".highlight").forEach(el =>
+            el.classList.remove("highlight")
+          );
+
+          let elementToHighlight;
+          if (targetId === "app") elementToHighlight = target.querySelector(".apk-btn");
+          if (targetId === "ajuda") elementToHighlight = target.querySelector("h2");
+          if (targetId === "sobre") elementToHighlight = target.querySelector("h1");
+
+          if (elementToHighlight) {
+            elementToHighlight.classList.add("highlight");
+            setTimeout(() => elementToHighlight.classList.remove("highlight"), 1600);
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<!-- ========== CSS DA NOTIFICAÇÃO (para logout) ========== -->
+<style>
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 14px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.3s ease, fadeOut 0.5s ease 3.5s forwards;
+    max-width: 320px;
+  }
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fadeOut {
+    to { opacity: 0; transform: translateX(100%); }
+  }
+  .notification.error { background: #d32f2f; }
+  .notification.success { background: #2e7d32; }
+  .notification i { font-size: 18px; }
+</style>
 
     </script>
   </body>
